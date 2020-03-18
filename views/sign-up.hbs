@@ -1,0 +1,20 @@
+
+<h1>Please sign in:</h1>
+
+<form class="form-auth" action="/auth/signup" method="POST">
+
+    <input type="text" name="username" placeholder="User name">
+
+    <input type="password" name="password" placeholder="Password">
+
+    <input type="password" name="repeatPassword" placeholder="Repeat Password">
+
+    {{#if errorMessage}}
+        <div>{{ errorMessage }}</div>
+    {{/if}}
+
+    <button class="btn" type="submit">Sign Up</button>
+
+</form>
+
+<h3> Already have an account? <a href="/auth/login">Log in</a> </h3>

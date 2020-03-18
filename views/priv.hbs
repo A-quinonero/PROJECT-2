@@ -1,0 +1,26 @@
+<h1> Hi {{username}}, here is your TO-DO list:</h1>
+
+{{#each haveList}}
+    <div class="have-card">
+        <h2>{{title}}</h2>
+        <p>{{message}}</p>
+        <p> completed: {{done}}</p>
+
+        {{#unless done }}
+            <a class="button" href="/priv/completed-have/{{_id}}">completed</a>
+        {{/unless}}
+
+        <a class="button" href="/priv/delete-have/{{_id}}">delete</a>
+    </div>
+    
+{{/each}}
+
+{{#unless haveList}}
+    <p>You have nothing to do</p>
+{{/unless}}
+<br>
+<a href="/priv/create-have">create a todo</a>
+
+<form action="/priv/logout" method="post">
+<button>log-out</button>
+</form>

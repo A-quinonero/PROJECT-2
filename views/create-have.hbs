@@ -1,0 +1,15 @@
+<h1>Create a new Product:</h1>
+
+<form action="/priv/create-have" method="post">
+    <input type="text" name="title" placeholder="Title">
+    <input type="image" name="image">
+    <textarea name="description" placeholder="Description"></textarea>
+    <textarea name="category" placeholder="Category"></textarea>
+
+    <button type="submit"> Create! </button>
+</form>
+
+{{#if message}}
+    <p>{{message}}</p>
+    <a href="/priv/">go back</a>
+{{/if}}
