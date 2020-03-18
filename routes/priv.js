@@ -27,6 +27,7 @@ router.get("/create-have", (req, res, next) =>{
 })
 
 router.post("/create-have", async (req, res, next)=>{
+    console.log(req.body)
     const {title, image, description, category} = req.body
 
     const newHave = await Have.create({title, image, description, category})
@@ -35,10 +36,18 @@ router.post("/create-have", async (req, res, next)=>{
 
     await User.updateOne({_id: userId}, { $push: {haveList: newHave._id} })
     
-    res.render("create-have.hbs", {message:"created successfully"})
+    res.redirect("/priv/")
 
 })
 
+router.get("/delete-have/:_id", async (req, res, next)=>{
+    const {_id} = req.params
+
+    await Have.findOneAndDelete({_id})
+
+    res.redirect("/priv/")
+    
+})
 
 
 router.post("/logout", (req, res, next)=>{

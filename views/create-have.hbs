@@ -1,15 +1,29 @@
-<h1>Create a new Product:</h1>
+<h1 class="text-center">Create a new Product:</h1>
 
 <form action="/priv/create-have" method="post">
-    <input type="text" name="title" placeholder="Title">
-    <input type="image" name="image">
-    <textarea name="description" placeholder="Description"></textarea>
-    <textarea name="category" placeholder="Category"></textarea>
+  <div class="form-group">
+    <label for="formGroupExampleInput">Title</label>
+    <input name="title" type="text" class="form-control" id="formGroupExampleInput" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Category</label>
+    <select name="category" type="text" class="form-control" id="formGroupExampleInput2" placeholder="category">
+        <option value="drawings">drawings</option>
+        <option value="handmade">handmade</option>
+        <option value="wood">wood</option>
+        <option value="photography">photography</option>
+         </select>
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Description</label>
+    <input name="description" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Description">
+  </div>
 
-    <button type="submit"> Create! </button>
+  <button class="btn btn-primary" type="submit"> Create! </button>
 </form>
 
 {{#if message}}
     <p>{{message}}</p>
     <a href="/priv/">go back</a>
 {{/if}}
+

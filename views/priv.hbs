@@ -1,26 +1,25 @@
-<h1> Hi {{username}}, here is your TO-DO list:</h1>
-
+<h1 class="text-center"> Hi {{username}}, here is your Have list:</h1>
+<div class="container">
 {{#each haveList}}
-    <div class="have-card">
-        <h2>{{title}}</h2>
-        <p>{{message}}</p>
-        <p> completed: {{done}}</p>
-
-        {{#unless done }}
-            <a class="button" href="/priv/completed-have/{{_id}}">completed</a>
-        {{/unless}}
-
-        <a class="button" href="/priv/delete-have/{{_id}}">delete</a>
-    </div>
-    
+    <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <p class="card-text">{{category}}</p>
+    <p class="card-text">{{description}}</p>
+    <a href="/priv/delete-have/{{_id}}" class="btn btn-primary">Delete</a>
+  </div>
+</div>
 {{/each}}
-
 {{#unless haveList}}
-    <p>You have nothing to do</p>
+    <p>No tienes nada que subir?</p>
 {{/unless}}
+</div>
 <br>
-<a href="/priv/create-have">create a todo</a>
-
+<form action="/priv/create-have">
+<button class="btn btn-primary">Add</button>
+</form>
+<br>
 <form action="/priv/logout" method="post">
-<button>log-out</button>
+<button class="btn btn-primary">log-out</button>
 </form>

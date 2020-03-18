@@ -4,7 +4,7 @@ const Schema   = mongoose.Schema;
 const haveSchema = new Schema({
     title: {type: String},
     image: {type: String},
-    description: {type: Boolean, default: false},
+    description: {type: String},
     category: {type: String, enum:['photography','drawings','handmade','wood']}
 });
 
