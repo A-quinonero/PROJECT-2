@@ -41,6 +41,23 @@ router.post("/create-have", uploadCloud.single('photo'), async (req, res, next)=
 
 })
 
+ router.get('/discover', (req, res, next) => {
+      Have.find()
+      .then(allTheHaveFromDB => {
+         if (req.session.currentUser){
+
+            [ { _id: { $ne: req.session.currentUser._id } }]
+         } 
+         console.log('Retrieved celebrities from DB:', allTheHaveFromDB);
+        res.render('discover', { have: allTheHaveFromDB });
+      })
+      .catch(error => {
+        console.log('Error while getting the celebrity from the DB: ', error);
+      })
+
+    });
+
+
 router.get("/delete-have/:_id", async (req, res, next)=>{
     const {_id} = req.params
 

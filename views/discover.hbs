@@ -1,0 +1,14 @@
+<form action="/priv/discover" method="post">
+<div class="container">
+{{#each have}}
+    <div class="card" style="width: 18rem;">
+  <img src= {{imgPath}} class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <p class="card-text"><i>{{category}}</i></p>
+    <p class="card-text">{{description}}</p>
+    <a href="/priv/want/{{_id}}" class="btn btn-primary">Want</a>
+  </div>
+</div>
+</form>
+{{/each}}
