@@ -1,22 +1,27 @@
 <h1 class="text-center">Create a new Product:</h1>
 
-<form action="/priv/create-have" method="post">
+<form class="form-auth text-center" action="/priv/create-have" method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="formGroupExampleInput">Title</label>
-    <input name="title" type="text" class="form-control" id="formGroupExampleInput" placeholder="Title">
+    <input name="title" type="text" class="form-control text-center" id="formGroupExampleInput" placeholder="Title">
+  </div>
+   <div class="form-group">
+    <label for="formGroupExampleInput2">Image</label>
+    <input name="photo" type="file" class="form-control text-center " id="formGroupExampleInput2">
+  </div>
+  
+  <div class="form-group">
+    <label for="formGroupExampleInput4">Description</label>
+    <input name="description" type="text" class="form-control text-center" id="formGroupExampleInput4" placeholder="Description">
   </div>
   <div class="form-group">
-    <label for="formGroupExampleInput2">Category</label>
-    <select name="category" type="text" class="form-control" id="formGroupExampleInput2" placeholder="category">
-        <option value="drawings">drawings</option>
-        <option value="handmade">handmade</option>
-        <option value="wood">wood</option>
-        <option value="photography">photography</option>
+    <label  for="formGroupExampleInput3">Category</label>
+    <select class="form-control" name="category" type="text" class="form-control text-center" id="formGroupExampleInput3" placeholder="category">
+        <option value="drawings">Drawings</option>
+        <option value="handmade">Handmade</option>
+        <option value="wood">Wood</option>
+        <option value="photography">Photography</option>
          </select>
-  </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput2">Description</label>
-    <input name="description" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Description">
   </div>
 
   <button class="btn btn-primary" type="submit"> Create! </button>

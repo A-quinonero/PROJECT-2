@@ -3,6 +3,7 @@ var router = express.Router();
 
 const User = require("../models/User.js")
 const Have = require("../models/Have.js");
+const uploadCloud = require("../config/cloudinary.js")
 
 
 //Estas dos líneas le dicen a router que por favor utilice el middelware userIsLoggedIn
@@ -26,11 +27,11 @@ router.get("/create-have", (req, res, next) =>{
     res.render("create-have.hbs")
 })
 
-router.post("/create-have", async (req, res, next)=>{
-    console.log(req.body)
-    const {title, image, description, category} = req.body
-
-    const newHave = await Have.create({title, image, description, category})
+router.post("/create-have", uploadCloud.single('photo'), async (req, res, next)=>{
+    const {title, description, category} = req.body
+    const imgPath = req.file.url;
+    const imgName = req.file.originalname;
+    const newHave = await Have.create({title, description, category, imgPath, imgName})
 
     const userId = req.session.currentUser._id
 

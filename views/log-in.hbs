@@ -1,16 +1,18 @@
-<h1>Please, log in </h1>
+<h1 class="title2 text-center">Log in </h1>
     <form class="form-auth" action="/auth/login" method="POST">
 
-        <input type="text" name="username" placeholder="User name">
+        <input  type="text" name="username" placeholder="User name">
 
-        <input type="password" name="password" placeholder="Password">
-
-        <button class="btn" type="submit">Login</button>
-
-    </form>
-
-    <h3> Don't have an account yet? <a href="/auth/signup">Sign up</a> </h3>
+        <input  type="password" name="password" placeholder="Password">
+<br>
+        <button class="btn btn-primary" type="submit">Login</button>
+</form>
+<br>
+<form class="d-flex justify-content-center align-items-center text-center" action="/auth/signup" method="post">
+<h3>Don't have an account yet?
+<button  type="submit" class="btn btn-primary">Sign up</button ></h3>
+</form>
 
     {{#if errorMessage}}
-    <div>{{ errorMessage }}</div>
+    <div class="text-center">{{ errorMessage }}</div>
     {{/if}}
