@@ -1,0 +1,34 @@
+<h1 class="text-center">Create a new Product:</h1>
+
+<form class="form-auth text-center" action="/priv/create-have" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Title</label>
+    <input name="title" type="text" class="form-control text-center" id="formGroupExampleInput" placeholder="Title">
+  </div>
+   <div class="form-group">
+    <label for="formGroupExampleInput2">Image</label>
+    <input name="photo" type="file" class="form-control text-center " id="formGroupExampleInput2">
+  </div>
+  
+  <div class="form-group">
+    <label for="formGroupExampleInput4">Description</label>
+    <input name="description" type="text" class="form-control text-center" id="formGroupExampleInput4" placeholder="Description">
+  </div>
+  <div class="form-group">
+    <label  for="formGroupExampleInput3">Category</label>
+    <select class="form-control" name="category" type="text" class="form-control text-center" id="formGroupExampleInput3" placeholder="category">
+        <option value="drawings">Drawings</option>
+        <option value="handmade">Handmade</option>
+        <option value="wood">Wood</option>
+        <option value="photography">Photography</option>
+         </select>
+  </div>
+
+  <button class="btn btn-primary" type="submit"> Create! </button>
+</form>
+
+{{#if message}}
+    <p>{{message}}</p>
+    <a href="/priv/">go back</a>
+{{/if}}
+

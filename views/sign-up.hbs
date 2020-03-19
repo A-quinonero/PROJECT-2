@@ -1,0 +1,25 @@
+
+<h1 class="title2 text-center">Sign Up:</h1>
+
+
+<form class="form-auth" action="/auth/signup" method="POST">
+
+    <input class= type="text" name="username" placeholder="User name">
+
+    <input  type="password" name="password" placeholder="Password">
+
+    <input  type="password" name="repeatPassword" placeholder="Repeat Password">
+
+    {{#if errorMessage}}
+        <div>{{ errorMessage }}</div>
+    {{/if}}
+<br>
+    <button class="btn btn-primary" type="submit">Sign Up</button>
+
+</form>
+
+<form class="d-flex justify-content-center align-items-center text-center" action="/auth/login" method="post">
+<h3>Already have an account?
+<button type="submit" class="btn btn-primary">Log in</button></h3>
+</form>
+
