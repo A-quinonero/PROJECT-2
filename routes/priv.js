@@ -64,6 +64,23 @@ router.get("/discover", (req, res, next) => {
       console.log("Error while getting the celebrity from the DB: ", error);
     });
 });
+router.get("/product-details",(req,res,next)=>{
+    const userLog = req.session.currentUser
+    res.render("product-details.hbs",{userLog})
+})
+router.get("/details/:id", async (req, res, next) => {
+    const userLog = req.session.currentUser
+    const { id } = req.params;
+   let detailProduct = await Products.findById(id)
+   console.log(detailProduct)
+  
+     res.render("product-details.hbs", {detailProduct, userLog})
+  });
+router.get("/notifications",(req,res,next)=>{
+    const userLog = req.session.currentUser
+    res.render("notifications.hbs",{userLog})
+})
+
 
 router.get("/want/:id", async (req, res, next) => {
   const userId = req.session.currentUser._id;

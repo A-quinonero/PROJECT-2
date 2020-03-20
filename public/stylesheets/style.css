@@ -8,8 +8,19 @@ background-color:black !important;
 .btn{
 background-color: black !important;
 }
+
 .titulo{
-    font-size: 60px;
+    position: absolute;
+    z-index: 999;
+    font-size: 90px;
+    font-family: "fruits";
+    display: flex;
+    justify-content: center;
+    top: -15px;
+    
+}
+.tituloIndex{
+    font-size: 90px;
     font-family: "fruits";
 }
 .title{
@@ -25,6 +36,12 @@ color: whitesmoke;
     
     color: whitesmoke;
     }
+.accesoAbajo{
+position: absolute;
+bottom: 100px;
+left: 41%;
+right: 41%;
+}
 .form-auth{
     display: flex;
 	flex-direction: column;
@@ -88,6 +105,7 @@ width: 35px !important;
     padding: 10px;
     background-color: #343A40;
     border-radius: 10px;
+    position: relative;
 }
 
 .discover-btn{
@@ -102,6 +120,45 @@ width: 35px !important;
         justify-content: space-around;
         align-items: center;
         align-content: center;
-    
-    
 }
+
+.detailImg{
+    object-fit: cover;
+    height: 1100px;
+    width: 900px;
+    }
+    .notification {
+       
+        color: white;
+        text-decoration: none;
+    
+        position: relative;
+        display: inline-block;
+        border-radius: 2px;
+      }
+      
+      
+      .notification .badge {
+        position: absolute;
+        top: -2px;
+        right: -25px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        background: red;
+        color: white;
+      }
+     
+      @media screen 
+      and (min-device-width: 1200px) 
+      and (max-device-width: 1600px) 
+      and (-webkit-min-device-pixel-ratio: 1) { 
+
+        .detailImg{
+            object-fit: cover;
+            height: 500px;
+            width: 400px;
+            position: absolute;
+            left: 50px;
+            
+            }
+    }

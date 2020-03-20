@@ -11,28 +11,33 @@
 
 <body>
 
-<div class="navegacion">
-
-
- 
-
       {{#unless userLog}}
-  
-        <a class="text-light text-right" href="/auth/signup">Sign Up</a>
+<a href="/priv/discover"><h1 class="tituloIndex text-center text-light">Changerest</h1></a>
+<div class="accesoAbajo text-center">
+<a href="/auth/login"><button class="btn btn-light text-light text-center mb-5" type="submit">Login</button></a>
+<a href="/auth/signup"><button class="btn btn-light text-light text-center mb-5" type="submit">Signup</button></a>
+</div>
     
-        <a class="text-light text-right" href="/auth/login">Log in</a>
+      
 
-         <a class="text-light text-right" href="/auth/login">Changerest</a>
-   
       {{else}}
-
+<div class="navegacion">
 <div class="menu">
       <div class="container text-left">
         <a class="navbar-brand profile2 " href="/priv/discover"><img src="/images/globe-africa-solid.svg" srcset=""></a>
+        <a class="navbar-brand notification " href="/priv/notifications">
+        <span><img class="profile2"  src="/images/telegram-plane-brands.svg" alt=""></span>
+
+        <span class="badge">3</span>
+        </a>
     </div>
+     
+        
+    
       <div class="container text-center">
           <a class="text-light titulo" href="/priv/discover">Changerest</a>
       </div>
+      
       <div class="container text-right">
           <a class="navbar-brand profile" href="/priv"><img src="/images/clipboard-regular.svg" srcset=""></a>
          <a class="navbar-brand profile" href="/priv/logout"><img src="/images/sign-out-alt-solid.svg" srcset=""></a>

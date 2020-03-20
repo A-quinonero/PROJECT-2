@@ -1,16 +1,16 @@
 
-<div class="containerd text-center">
-{{#each have}}
-    <div class="card" style="width: 18rem;">
-      <img src={{imgPath}} class="card-img-top" alt="...">
-      <div class="card-body ">
-        <h5 class="card-title">{{title}}</h5>
-        <p class="card-text"><i>{{category}}</i></p>
-        <p class="card-text">{{description}}</p>
-        <a class="btn btn-light text-light " href="/priv/want/{{id}}">Want!</a>
+<div class="containero text-center">
+  <div >
+    
+      <img src={{detailProduct.imgPath}} class="detailImg" alt="...">
+      
+        <h5 class="text-light">{{detailProduct.title}}</h5>
+        <p class="text-light"><i>{{detailProduct.category}}</i></p>
+        <p class="text-light">{{detailProduct.description}}</p>
+         <a class="btn btn-light text-light " href="/priv/want/{{detailProduct.id}}">Want!</a>
       </div>
     </div>
-    {{/each}}
+    </div>
    </div>
  
 

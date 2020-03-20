@@ -1,4 +1,4 @@
-<p class="text-right pr-3 text-light"> Buenas <b>{{myUserHave.username}}</b>!</p>
+<p class="text-right pr-5 text-light"> Buenas <b>{{myUserHave.username}}</b>!</p>
 <h1 class="title2 text-center">Wishes</h1>
 <div class="containerd text-center">
 {{#each myUserWant.wantList}}
@@ -7,7 +7,6 @@
   <div class="card-body">
     <h5 class="card-title">{{this.title}}</h5>
     <p class="card-text"><i>{{this.category}}</i></p>
-    <p class="card-text">{{this.description}}</p>
     <a href="/priv/delete-want/{{this._id}}" class="btn btn-light text-light">Delete</a>
   </div>
 </div>
@@ -29,7 +28,6 @@
   <div class="card-body">
     <h5 class="card-title">{{this.title}}</h5>
     <p class="card-text"><i>{{this.category}}</i></p>
-    <p class="card-text">{{this.description}}</p>
     <a href="/priv/delete-have/{{this._id}}" class="btn btn-light text-light">Delete</a>
   </div>
 </div>
@@ -43,6 +41,3 @@
 <button class="btn btn-light text-light">Add</button>
 </form>
 <br>
-<form class="d-flex justify-content-center align-items-center text-center" action="/priv/logout" method="post">
-<button class="btn btn-light text-light">log-out</button>
-</form>
