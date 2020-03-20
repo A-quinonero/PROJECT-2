@@ -1,18 +1,24 @@
+body,html{
+background-color:black !important;
+}
 @font-face {
     font-family: bakery;
     src: url('/tipografia/orange juice 2.0 copia.ttf')
 }
+.btn{
+background-color: black !important;
+}
 .title{
 padding-top: 10px;
 font-size: 65px;
-font-family: bakery;
-color: black;
+
+color: whitesmoke;
 }
 .title2{
     padding-top: 10px;
     font-size: 45px;
-    font-family: bakery;
-    color: black;
+    
+    color: whitesmoke;
     }
 .form-auth{
     display: flex;
@@ -22,14 +28,21 @@ color: black;
 	align-items: center;
 	align-content: stretch;
 }
-.container{
+.containerd{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.card-body{
+background-color: #343d46;
+color: white;
 }
 .card{
 max-height: 500px;
+
 }
 .card{
     max-width: 100%;
@@ -52,10 +65,8 @@ max-height: 500px;
 max-width: 200px;
 width: 200px;
 }
-body{
-background-image: url('/images/fondo.jpg');
-background-size: cover;
-background-repeat: no-repeat;
-height: 100vh;
-filter: brightness(100%);
+
+.profile{
+width: 25px;
 }
+
