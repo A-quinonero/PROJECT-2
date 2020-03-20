@@ -68,7 +68,7 @@ router.get("/want/:id", async (req, res, next) => {
   const { id } = req.params;
   await User.updateOne({_id: userId}, { $push: {wantList: id} })
 
-  res.redirect("/priv")
+   res.redirect("/priv")
 });
 
 router.get("/delete-have/:_id", async (req, res, next) => {
