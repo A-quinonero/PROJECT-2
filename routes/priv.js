@@ -24,14 +24,16 @@ const userLog = req.session.currentUser
   
 
 router.get("/create-have", (req, res, next) => {
+    const userLog = req.session.currentUser
   //el get solo tiene que renderizar la vista
-  res.render("create-have.hbs");
+  res.render("create-have.hbs",{userLog});
 });
 
 router.post(
   "/create-have",
   uploadCloud.single("photo"),
   async (req, res, next) => {
+      
     const userId = req.session.currentUser._id;
     const { title, description, category } = req.body;
     const imgPath = req.file.url;

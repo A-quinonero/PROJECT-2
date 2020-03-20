@@ -11,15 +11,15 @@
     <input  type="password" name="repeatPassword" placeholder="Repeat Password">
 
     {{#if errorMessage}}
-        <div>{{ errorMessage }}</div>
+        <div class="text-light">{{ errorMessage }}</div>
     {{/if}}
 <br>
-    <button class="btn btn-primary" type="submit">Sign Up</button>
+    <button class="btn btn-light text-light" type="submit">Sign Up</button>
 
 </form>
 
 <form class="d-flex justify-content-center align-items-center text-center" action="/auth/login" method="post">
-<h3>Already have an account?
-<button type="submit" class="btn btn-primary">Log in</button></h3>
+<h3 class="text-light">Already have an account?
+<button type="submit" class="btn btn-light text-light">Log in</button></h3>
 </form>
 

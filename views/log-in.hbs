@@ -9,10 +9,10 @@
 </form>
 <br>
 <form class="d-flex justify-content-center align-items-center text-center" action="/auth/signup" method="post">
-<h3>Don't have an account yet?
-<button  type="submit" class="btn btn-primary">Sign up</button ></h3>
+<h3 class="text-light">Don't have an account yet?
+<button  type="submit" class="btn btn-light text-light">Sign up</button ></h3>
 </form>
 
     {{#if errorMessage}}
-    <div class="text-center">{{ errorMessage }}</div>
+    <div class="text-center text-light">{{ errorMessage }}</div>
     {{/if}}

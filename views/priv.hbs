@@ -1,4 +1,4 @@
-<p class="text-right pr-3"> Buenas <b>{{myUserHave.username}}</b>!</p>
+<p class="text-right pr-3 text-light"> Buenas <b>{{myUserHave.username}}</b>!</p>
 <h1 class="title2 text-center">Have list:</h1>
 <div class="containerd text-center">
 {{#each myUserHave.haveList}}
@@ -8,17 +8,17 @@
     <h5 class="card-title">{{this.title}}</h5>
     <p class="card-text"><i>{{this.category}}</i></p>
     <p class="card-text">{{this.description}}</p>
-    <a href="/priv/delete-have/{{this._id}}" class="btn btn-primary">Delete</a>
+    <a href="/priv/delete-have/{{this._id}}" class="btn btn-light text-light">Delete</a>
   </div>
 </div>
 {{/each}}
 {{#unless myUserHave.haveList}}
-    <p>¿Something to Upload?</p>
+    <p class="text-light">¿Something to Upload?</p>
 {{/unless}}
 </div>
 <br>
 <form class="d-flex justify-content-center align-items-center text-center" action="/priv/create-have">
-<button class="btn btn-primary">Add</button>
+<button class="btn btn-light text-light">Add</button>
 </form>
 <br>
 <h1 class="title2 text-center">Want list:</h1>
@@ -30,19 +30,19 @@
     <h5 class="card-title">{{this.title}}</h5>
     <p class="card-text"><i>{{this.category}}</i></p>
     <p class="card-text">{{this.description}}</p>
-    <a href="/priv/delete-want/{{this._id}}" class="btn btn-primary">Delete</a>
+    <a href="/priv/delete-want/{{this._id}}" class="btn btn-light text-light">Delete</a>
   </div>
 </div>
 {{/each}}
 {{#unless myUserWant.wantList}}
-    <p>¿What do you want?</p>
+    <p class="text-light">¿What do you want?</p>
 {{/unless}}
 </div>
 <br>
 <form class="d-flex justify-content-center align-items-center text-center" action="/priv/discover">
-<button class="btn btn-primary">Add</button>
+<button class="btn btn-light text-light">Add</button>
 </form>
 <br>
 <form class="d-flex justify-content-center align-items-center text-center" action="/priv/logout" method="post">
-<button class="btn btn-primary">log-out</button>
+<button class="btn btn-light text-light">log-out</button>
 </form>
