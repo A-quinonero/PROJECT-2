@@ -2,11 +2,15 @@ body,html{
 background-color:black !important;
 }
 @font-face {
-    font-family: bakery;
-    src: url('/tipografia/orange juice 2.0 copia.ttf')
+    font-family: "fruits";
+    src: url('/tipografia/summer fruits personal use.ttf')
 }
 .btn{
 background-color: black !important;
+}
+.titulo{
+    font-size: 60px;
+    font-family: "fruits";
 }
 .title{
 padding-top: 10px;
@@ -16,7 +20,8 @@ color: whitesmoke;
 }
 .title2{
     padding-top: 10px;
-    font-size: 45px;
+    font-size: 35px;
+    font-family: "fruits";
     
     color: whitesmoke;
     }
@@ -39,6 +44,10 @@ color: whitesmoke;
 .card-body{
 background-color: #343d46;
 color: white;
+padding:0.5rem !important;
+}
+.card-title{
+    margin: 0 !important;
 }
 .card{
 max-height: 500px;
@@ -67,6 +76,32 @@ width: 200px;
 }
 
 .profile{
-width: 25px;
+width: 35px !important;
 }
 
+.profile2{
+    width: 45px !important;
+    }
+
+.navegacion{
+    margin: 40px;
+    padding: 10px;
+    background-color: #343A40;
+    border-radius: 10px;
+}
+
+.discover-btn{
+    text-align: left;
+}
+
+.menu{
+    
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+    
+    
+}

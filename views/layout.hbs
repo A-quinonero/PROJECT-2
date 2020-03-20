@@ -11,44 +11,50 @@
 
 <body>
 
+<div class="navegacion">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Change World</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      </li>
-     
-       <li class="nav-item">
-        <a class="nav-link" href="/priv/discover">Discover</a>
-      </li>
-       
-    </ul>
-   
-    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-    <ul class="navbar-nav">
-       <li class="nav-item d-flex justify-content-end">
-    <a class="navbar-brand profile" href="/priv"><img src="/images/user-solid.svg" alt="" srcset=""></a>
-      </li>
+
+ 
+
       {{#unless userLog}}
-    <li class="nav-item ">
-        <a class="nav-link" href="/auth/signup">Sign Up</a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="/auth/login">Log in</a>
-      </li>
+  
+        <a class="text-light text-right" href="/auth/signup">Sign Up</a>
+    
+        <a class="text-light text-right" href="/auth/login">Log in</a>
+
+         <a class="text-light text-right" href="/auth/login">Changerest</a>
+   
       {{else}}
-      <li class="nav-item ">
-        <a class="nav-link" href="/priv/logout">Log out</a>
-      </li>
+
+<div class="menu">
+      <div class="container text-left">
+        <a class="navbar-brand profile2 " href="/priv/discover"><img src="/images/globe-africa-solid.svg" srcset=""></a>
+    </div>
+      <div class="container text-center">
+          <a class="text-light titulo" href="/priv/discover">Changerest</a>
+      </div>
+      <div class="container text-right">
+          <a class="navbar-brand profile" href="/priv"><img src="/images/clipboard-regular.svg" srcset=""></a>
+         <a class="navbar-brand profile" href="/priv/logout"><img src="/images/sign-out-alt-solid.svg" srcset=""></a>
+      </div>
+</div>
       {{/unless}}
 
-      </ul>
+
   </div>
-   </div>
-</nav>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
   {{{body}}}
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
