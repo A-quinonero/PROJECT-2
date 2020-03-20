@@ -1,76 +1,98 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-const User = require("../models/User.js")
-const Have = require("../models/Have.js");
-const uploadCloud = require("../config/cloudinary.js")
+const User = require("../models/User.js");
+const Products = require("../models/Products.js");
+const uploadCloud = require("../config/cloudinary.js");
 
 
-//Estas dos líneas le dicen a router que por favor utilice el middelware userIsLoggedIn
-const userIsLoggedIn = require("../middlewares/auth-mid").userIsLoggedIn
-router.use((req, res, next)=> userIsLoggedIn(req, res, next));
+const userIsLoggedIn = require("../middlewares/auth-mid").userIsLoggedIn;
+router.use((req, res, next) => userIsLoggedIn(req, res, next));
 
 router.get("/", async (req, res, next) => {
+  const myId = req.session.currentUser._id;
+const userLog = req.session.currentUser
+  // Necesito hacer el populate para que se vean la información del todoList.
 
-    const myId = req.session.currentUser._id
+  const myUserHave = await User.findOne({ _id: myId }).populate("haveList");
+  const myUserWant = await User.findOne({ _id: myId }).populate("wantList");
 
-    // Necesito hacer el populate para que se vean la información del todoList. 
+  res.render("priv.hbs",{userLog, myUserHave, myUserWant})
+});
 
-    const myUser = await User.findOne({"_id": myId}).populate("haveList")
 
-    console.log(myUser)
+  
 
-    res.render("priv.hbs", myUser)
-})
-router.get("/create-have", (req, res, next) =>{
-    //el get solo tiene que renderizar la vista
-    res.render("create-have.hbs")
-})
+router.get("/create-have", (req, res, next) => {
+  //el get solo tiene que renderizar la vista
+  res.render("create-have.hbs");
+});
 
-router.post("/create-have", uploadCloud.single('photo'), async (req, res, next)=>{
-    const {title, description, category} = req.body
+router.post(
+  "/create-have",
+  uploadCloud.single("photo"),
+  async (req, res, next) => {
+    const userId = req.session.currentUser._id;
+    const { title, description, category } = req.body;
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
-    const newHave = await Have.create({title, description, category, imgPath, imgName})
-
-    const userId = req.session.currentUser._id
-
-    await User.updateOne({_id: userId}, { $push: {haveList: newHave._id} })
-    
-    res.redirect("/priv/")
-
-})
-
- router.get('/discover', (req, res, next) => {
-      Have.find()
-      .then(allTheHaveFromDB => {
-         if (req.session.currentUser){
-
-            [ { _id: { $ne: req.session.currentUser._id } }]
-         } 
-         console.log('Retrieved celebrities from DB:', allTheHaveFromDB);
-        res.render('discover', { have: allTheHaveFromDB });
-      })
-      .catch(error => {
-        console.log('Error while getting the celebrity from the DB: ', error);
-      })
-
+    const newProduct = await Products.create({
+      title,
+      description,
+      category,
+      creator:userId,
+      imgPath,
+      imgName
     });
 
+    await User.updateOne({ _id: userId }, { $push: { haveList: newProduct._id } });
 
-router.get("/delete-have/:_id", async (req, res, next)=>{
-    const {_id} = req.params
+    res.redirect("/priv/");
+  }
+);
 
-    await Have.findOneAndDelete({_id})
+router.get("/discover", (req, res, next) => {
+    const userLog = req.session.currentUser
+  Products.find({ creator: { $ne: req.session.currentUser._id } })
+    .then(allTheHaveFromDB => {
+        console.log(allTheHaveFromDB);
+      res.render("discover", { have: allTheHaveFromDB, userLog });
+    })
+    .catch(error => {
+      console.log("Error while getting the celebrity from the DB: ", error);
+    });
+});
 
-    res.redirect("/priv/")
-    
-})
+router.get("/want/:id", async (req, res, next) => {
+  const userId = req.session.currentUser._id;
+  const { id } = req.params;
+  await User.updateOne({_id: userId}, { $push: {wantList: id} })
 
+  res.redirect("/priv")
+});
 
-router.post("/logout", (req, res, next)=>{
-    delete req.session.currentUser
-    res.redirect("/")
-})
+router.get("/delete-have/:_id", async (req, res, next) => {
+  const { _id } = req.params;
+
+  await Products.findOneAndDelete({ _id });
+
+  res.redirect("/priv/");
+});
+
+router.get("/delete-want/:id", async (req, res, next) => {
+    const userId = req.session.currentUser._id;
+    const { id } = req.params;
+    await User.updateOne({_id: userId}, { $pull: {wantList: id} })
+  
+    res.redirect("/priv")
+  });
+  router.get("/logout", (req, res, next) => {
+    delete req.session.currentUser;
+    res.redirect("/");
+  });
+  router.get("/logout", (req, res, next) => {
+    delete req.session.currentUser;
+    res.redirect("/discover");
+  });
 
 module.exports = router;

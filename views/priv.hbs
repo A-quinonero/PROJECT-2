@@ -1,23 +1,45 @@
-<p class="text-right pr-2"> Buenas <b>{{username}}</b>!</p>
+<p class="text-right pr-3"> Buenas <b>{{myUserHave.username}}</b>!</p>
 <h1 class="title2 text-center">Have list:</h1>
-<div class="container">
-{{#each haveList}}
+<div class="containerd text-center">
+{{#each myUserHave.haveList}}
     <div class="card" style="width: 18rem;">
-  <img src= {{imgPath}} class="card-img-top" alt="...">
+  <img src= {{this.imgPath}} class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{title}}</h5>
-    <p class="card-text"><i>{{category}}</i></p>
-    <p class="card-text">{{description}}</p>
-    <a href="/priv/delete-have/{{_id}}" class="btn btn-primary">Delete</a>
+    <h5 class="card-title">{{this.title}}</h5>
+    <p class="card-text"><i>{{this.category}}</i></p>
+    <p class="card-text">{{this.description}}</p>
+    <a href="/priv/delete-have/{{this._id}}" class="btn btn-primary">Delete</a>
   </div>
 </div>
 {{/each}}
-{{#unless haveList}}
-    <p>No tienes nada que subir?</p>
+{{#unless myUserHave.haveList}}
+    <p>¿Something to Upload?</p>
 {{/unless}}
 </div>
 <br>
 <form class="d-flex justify-content-center align-items-center text-center" action="/priv/create-have">
+<button class="btn btn-primary">Add</button>
+</form>
+<br>
+<h1 class="title2 text-center">Want list:</h1>
+<div class="containerd text-center">
+{{#each myUserWant.wantList}}
+    <div class="card" style="width: 18rem;">
+  <img src= {{this.imgPath}} class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{this.title}}</h5>
+    <p class="card-text"><i>{{this.category}}</i></p>
+    <p class="card-text">{{this.description}}</p>
+    <a href="/priv/delete-want/{{this._id}}" class="btn btn-primary">Delete</a>
+  </div>
+</div>
+{{/each}}
+{{#unless myUserWant.wantList}}
+    <p>¿What do you want?</p>
+{{/unless}}
+</div>
+<br>
+<form class="d-flex justify-content-center align-items-center text-center" action="/priv/discover">
 <button class="btn btn-primary">Add</button>
 </form>
 <br>
