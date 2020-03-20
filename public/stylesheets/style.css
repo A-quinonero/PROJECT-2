@@ -161,4 +161,31 @@ width: 35px !important;
             left: 50px;
             
             }
+        .orden{
+            width: 95%;
+            text-align: justify;
+           position: absolute;
+           padding-left: 500px;
+        }
+        .profile{
+            width: 25px !important;
+            }
+            .profile2{
+                width: 25px !important;
+                }
+                .titulo{
+                    position: absolute;
+                    z-index: 999;
+                    font-size: 90px;
+                    font-family: "fruits";
+                    left: 50px;
+                    top: -25px;
+                    
+                }
+               .navegacion{
+                width: 95%;
+               }
+                
+            
+       
     }
