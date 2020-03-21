@@ -1,191 +1,254 @@
 body,html{
-background-color:black !important;
-}
-@font-face {
-    font-family: "fruits";
-    src: url('/tipografia/summer fruits personal use.ttf')
-}
-.btn{
-background-color: black !important;
-}
-
-.titulo{
-    position: absolute;
-    z-index: 999;
-    font-size: 90px;
-    font-family: "fruits";
-    display: flex;
-    justify-content: center;
-    top: -15px;
+    background-color:black !important;
+    }
+    @font-face {
+        font-family: "fruits";
+        src: url('/tipografia/summer fruits personal use.ttf')
+    }
+    .btn{
+    background-color: black !important;
+    }
     
-}
-.tituloIndex{
-    font-size: 90px;
-    font-family: "fruits";
-}
-.title{
-padding-top: 10px;
-font-size: 65px;
-
-color: whitesmoke;
-}
-.title2{
+    .titulo{
+        position: absolute;
+        z-index: 999;
+        font-size: 90px;
+        font-family: "fruits";
+        display: flex;
+        justify-content: center;
+        top: -15px;
+        
+    }
+    .tituloIndex{
+        font-size: 200px;
+        font-family: "fruits";
+    }
+    .title{
     padding-top: 10px;
-    font-size: 35px;
-    font-family: "fruits";
+    font-size: 65px;
     
     color: whitesmoke;
     }
-.accesoAbajo{
-position: absolute;
-bottom: 100px;
-left: 41%;
-right: 41%;
-}
-.form-auth{
-    display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-items: center;
-	align-content: stretch;
-}
-.containerd{
-    display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
-}
-.card-body{
-background-color: #343d46;
-color: white;
-padding:0.5rem !important;
-}
-.card-title{
-    margin: 0 !important;
-}
-.card{
-max-height: 500px;
-
-}
-.card{
-    max-width: 100%;
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-    margin: 10px;
-
-}
-.card{
-    display: block;
-  max-width: none !important;
-}
-.card-img-top{
-    object-fit: cover;
-    height: 300px;
-    width: 200px;
-}
-.form-control{
-max-width: 200px;
-width: 200px;
-}
-
-.profile{
-width: 35px !important;
-}
-
-.profile2{
-    width: 45px !important;
+    .title2{
+        padding-top: 10px;
+        font-size: 70px;
+        font-family: "fruits";
+        
+        color: whitesmoke;
+        }
+    .accesoAbajo{
+    position: absolute;
+    bottom: 100px;
+    left: 41%;
+    right: 41%;
     }
-
-.navegacion{
-    margin: 40px;
-    padding: 10px;
-    background-color: #343A40;
-    border-radius: 10px;
-    position: relative;
-}
-
-.discover-btn{
-    text-align: left;
-}
-
-.menu{
-    
+    .form-auth{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        align-content: stretch;
+    }
+    .containerd{
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         align-content: center;
+        flex-wrap: wrap;
+    }
+    .card-body{
+    background-color: #343d46;
+    color: white;
+    padding:0.5rem !important;
+    }
+    .card-title{
+        margin: 0 !important;
+    }
+    .card{
+    max-height: 500px;
+    
+    }
+    .card{
+        max-width: 100%;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        margin: 10px;
+    
+    }
+    .card{
+        display: block;
+      max-width: none !important;
+    }
+    .card-img-top{
+        object-fit: cover;
+        height: 300px;
+        width: 200px;
+    }
+    .form-control{
+    max-width: 200px;
+    width: 200px;
+    }
+    
+    .profile{
+    width: 35px !important;
+    }
+    
+    .profile2{
+        width: 45px !important;
+        }
+    
+    .navegacion{
+        margin: 40px;
+        padding: 10px;
+        background-color: #343A40;
+        border-radius: 10px;
+        position: relative;
+    }
+    
+    .discover-btn{
+        text-align: left;
+    }
+    
+    .menu{
+        
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            align-items: center;
+            align-content: center;
+    }
+    
+    .detailImg{
+        object-fit: cover;
+        height: 1100px;
+        width: 900px;
+        }
+        .notification {
+           
+            color: white;
+            text-decoration: none;
+        
+            position: relative;
+            display: inline-block;
+            border-radius: 2px;
+          }
+          
+          
+          .notification .badge {
+            position: absolute;
+            top: -2px;
+            right: -25px;
+            padding: 5px 10px;
+            border-radius: 50%;
+            background: red;
+            color: white;
+          }
+         
+@media screen 
+and (min-device-width: 1200px) 
+and (max-device-width: 1600px) 
+and (-webkit-min-device-pixel-ratio: 1) { 
+    
+.detailImg{
+object-fit: cover;
+height: 500px;
+width: 400px;
+position: absolute;
+left: 50px;
+                
+}
+.orden{
+width: 95%;
+text-align: justify;
+position: absolute;
+padding-left: 500px;
+font-size: 20px !important;
+}
+.profile{
+width: 25px !important;
+}
+.profile2{
+width: 25px !important;
+}
+.titulo{
+position: absolute;
+z-index: 999;
+font-size: 90px!important;
+font-family: "fruits";
+left: 540px;
+ top: -25px;
+                        
+}
+.navegacion{
+width: 95%;
+}
+                    
+.orden2{
+font-size: 30px !important;
+}
+.orden .btn{
+                    
+font-size: 20px !important;
+}
+.form-auth input{
+width: 200px !important;
+height: 50px !important;
+font-size: 20px !important;
+}
+.form-auth .btn{
+font-size: 25px !important;
+}
+.logsign .btn{
+font-size: 25px !important;
+}
+.errorLog{
+font-size: 20px !important;
+}
+.tituloIndex{
+    font-size: 90px!important;
+    font-family: "fruits";
+}
+.title2{
+    padding-top: 10px;
+    font-size: 35px!important;
+    font-family: "fruits";
+    
+    color: whitesmoke;
+}       
 }
 
-.detailImg{
-    object-fit: cover;
-    height: 1100px;
-    width: 900px;
-    }
-    .notification {
-       
-        color: white;
-        text-decoration: none;
-    
-        position: relative;
-        display: inline-block;
-        border-radius: 2px;
-      }
-      
-      
-      .notification .badge {
-        position: absolute;
-        top: -2px;
-        right: -25px;
-        padding: 5px 10px;
-        border-radius: 50%;
-        background: red;
-        color: white;
-      }
-     
-      @media screen 
-      and (min-device-width: 1200px) 
-      and (max-device-width: 1600px) 
-      and (-webkit-min-device-pixel-ratio: 1) { 
 
-        .detailImg{
-            object-fit: cover;
-            height: 500px;
-            width: 400px;
-            position: absolute;
-            left: 50px;
-            
-            }
-        .orden{
-            width: 95%;
-            text-align: justify;
-           position: absolute;
-           padding-left: 500px;
-        }
-        .profile{
-            width: 25px !important;
-            }
-            .profile2{
-                width: 25px !important;
-                }
-                .titulo{
-                    position: absolute;
-                    z-index: 999;
-                    font-size: 90px;
-                    font-family: "fruits";
-                    left: 50px;
-                    top: -25px;
-                    
-                }
-               .navegacion{
-                width: 95%;
-               }
-                
-            
-       
+
+.orden{
+font-size: 60px;
+margin: 10px;   
+}
+.orden .btn{   
+font-size: 70px;
+}
+.orden2{
+font-size: 72px;
+}
+.form-auth input{
+    width: 600px ;
+    height: 120px ;
+    font-size: 60px ;
     }
+.form-auth .btn{
+font-size: 70px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+.logsign .btn{
+font-size: 70px;
+}
+.errorLog{
+font-size: 50px;
+}
+            
+    
+    

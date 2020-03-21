@@ -4,22 +4,24 @@
 
 <form class="form-auth" action="/auth/signup" method="POST">
 
-    <input class= type="text" name="username" placeholder="User name">
+    <input class="text-center" type="text" name="username" placeholder="User name">
 
-    <input  type="password" name="password" placeholder="Password">
+    <input class="text-center"  type="password" name="password" placeholder="Password">
 
-    <input  type="password" name="repeatPassword" placeholder="Repeat Password">
+    <input class="text-center" type="password" name="repeatPassword" placeholder="Repeat Password">
 
     {{#if errorMessage}}
-        <div class="text-light">{{ errorMessage }}</div>
+        <div class="text-light errorLog">{{ errorMessage }}</div>
     {{/if}}
 <br>
     <button class="btn btn-light text-light" type="submit">Sign Up</button>
 
 </form>
 
-<form class="d-flex justify-content-center align-items-center text-center" action="/auth/login" method="post">
-<h3 class="text-light">Already have an account?
+<form class="d-flex justify-content-center align-items-center text-center logsign" action="/auth/login" method="post">
+<h3 class="text-light errorLog">Already have an account?
+    <div>
 <button type="submit" class="btn btn-light text-light">Log in</button></h3>
+</div>
 </form>
 
