@@ -1,42 +1,24 @@
-<div class="btn-filtro">
-<h5 class="filtro text-light">Filtrar por:</h5>
- <select class="filtro form-control" name="category" type="text" class="form-control text-center" id="formGroupExampleInput3" placeholder="category"> 
-        <option value="drawings"><a href="">Drawings</a></option>
-        <option value="handmade"><a href="">Handmade</a></option>
-        <option value="wood"><a href="">Wood</a></option>
-        <option value="photography"><a href="">Photography</a></option>
+<form action="/priv/categories" method="post">
+<div class="container text-center d-flex justify-content-center align-items-center filtro">
+ <select class=" form-control filtro mr-3" name="category" type="text" class="form-control text-center" id="formGroupExampleInput3" placeholder="category"> 
+        <option value="drawings">Drawings</option>
+        <option value="handmade">Handmade</option>
+        <option value="wood">Wood</option>
+        <option value="photography">Photography</option>
 </select>
+<button class="btn btn-light text-light" type="submit">Go</button>
 </div>
+</form>
 
 <div class="containerd text-center">
-{{#each have}}
+{{#each products}}
     <div class="card" style="width: 18rem;">
       <a href="/priv/details/{{id}}"><img  src={{imgPath}} class="card-img-top imagen" alt="..."></a>
-      <div class="card-body ">
+      <div  class="card-body ">
         <a href="/priv/details/{{id}}"><h5 class="card-title text-light"><i>{{title}}</i></h5></a>
          
       </div>
     </div>
     {{/each}}
    </div>
- 
-
-
-
-
-{{!-- <div class="containerd text-center">
-{{#each have}}
-    <div class="card" style="width: 18rem;">
-      <img src={{imgPath}} class="card-img-top" alt="...">
-      <div class="card-body ">
-        <h5 class="card-title">{{title}}</h5>
-        <p class="card-text"><i>{{category}}</i></p>
-        <p class="card-text">{{description}}</p>
-        <a class="btn btn-light text-light " href="/priv/want/{{id}}">Want!</a>
-      </div>
-    </div>
-    {{/each}}
-   </div>
-  --}}
-
-
+ </div>

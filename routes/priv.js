@@ -38,14 +38,7 @@ router.post(
     const { title, description, category } = req.body;
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
-    const newProduct = await Products.create({
-      title,
-      description,
-      category,
-      creator:userId,
-      imgPath,
-      imgName
-    });
+    const newProduct = await Products.create({ title, description, category, creator:userId, imgPath, imgName });
 
     await User.updateOne({ _id: userId }, { $push: { haveList: newProduct._id } });
 
@@ -53,17 +46,35 @@ router.post(
   }
 );
 
-router.get("/discover", (req, res, next) => {
+
+
+
+router.post("/categories", async(req,res,next)=>{
+  const userLog = req.session.currentUser
+
+  const {category} = req.body
+
+  const filterCategory = await Products.find({ category })
+
+  console.log(filterCategory)
+
+  res.render("discover", {products: filterCategory, userLog});
+})
+
+
+
+router.get("/discover", async (req, res, next) => {
     const userLog = req.session.currentUser
-  Products.find({ creator: { $ne: req.session.currentUser._id } })
-    .then(allTheHaveFromDB => {
-        console.log(allTheHaveFromDB);
-      res.render("discover", { have: allTheHaveFromDB, userLog });
-    })
-    .catch(error => {
-      console.log("Error while getting the celebrity from the DB: ", error);
-    });
+    
+
+  let randomProducts = await Products.find({ creator: { $ne: req.session.currentUser._id } })
+  //let randomProducts = await Products.aggregate([ { $sample: { size: 15 } } ])
+  //var randomValue = randomProducts[Math.floor(randomProducts.length * Math.random())]
+res.render("discover", {  products: randomProducts , userLog });
 });
+
+
+
 router.get("/product-details",(req,res,next)=>{
     const userLog = req.session.currentUser
     res.render("product-details.hbs",{userLog})
