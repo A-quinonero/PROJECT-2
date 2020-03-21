@@ -31,7 +31,7 @@ body,html{
     }
     .title2{
         padding-top: 10px;
-        font-size: 70px;
+        font-size: 100px;
         font-family: "fruits";
         
         color: whitesmoke;
@@ -87,10 +87,7 @@ body,html{
         height: 300px;
         width: 200px;
     }
-    .form-control{
-    max-width: 200px;
-    width: 200px;
-    }
+    
     
     .profile{
     width: 35px !important;
@@ -147,6 +144,16 @@ body,html{
             background: red;
             color: white;
           }
+          .btn-filtro{
+            justify-content: center;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .filtro{
+            margin-bottom: 0 !important ;
+            margin: 0 1%;
+        }
          
 @media screen 
 and (min-device-width: 1200px) 
@@ -218,7 +225,13 @@ font-size: 20px !important;
     font-family: "fruits";
     
     color: whitesmoke;
-}       
+} 
+.form-group select{
+    width: 150px !important;
+    height: 50px !important;
+    font-size: 15px !important;
+}
+
 }
 
 
@@ -249,6 +262,12 @@ font-size: 70px;
 .errorLog{
 font-size: 50px;
 }
+.form-group select{
+    width: 300px ;
+    height: 100px ;
+    font-size: 30px ;
+}
+
             
     
     

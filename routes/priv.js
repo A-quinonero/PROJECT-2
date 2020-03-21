@@ -53,17 +53,22 @@ router.post(
   }
 );
 
-router.get("/discover", (req, res, next) => {
+router.get("/discover", async (req, res, next) => {
     const userLog = req.session.currentUser
-  Products.find({ creator: { $ne: req.session.currentUser._id } })
-    .then(allTheHaveFromDB => {
-        console.log(allTheHaveFromDB);
-      res.render("discover", { have: allTheHaveFromDB, userLog });
-    })
-    .catch(error => {
-      console.log("Error while getting the celebrity from the DB: ", error);
-    });
+    
+
+  let randomProducts = await Products.find({ creator: { $ne: req.session.currentUser._id } })
+  //let randomProducts = await Products.aggregate([ { $sample: { size: 15 } } ])
+  //var randomValue = randomProducts[Math.floor(randomProducts.length * Math.random())]
+res.render("discover", {  randomProducts , userLog });
 });
+router.get("/categories", async(req,res,next)=>{
+const { category } = req.params.category;
+Products.find(req.body.category)
+console.log(category)
+res.render("discover");
+})
+
 router.get("/product-details",(req,res,next)=>{
     const userLog = req.session.currentUser
     res.render("product-details.hbs",{userLog})
