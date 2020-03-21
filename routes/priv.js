@@ -48,15 +48,13 @@ router.post(
 
 
 
-
+//filter de categories
 router.post("/categories", async(req,res,next)=>{
   const userLog = req.session.currentUser
 
   const {category} = req.body
 
   const filterCategory = await Products.find({ category })
-
-  console.log(filterCategory)
 
   res.render("discover", {products: filterCategory, userLog});
 })
