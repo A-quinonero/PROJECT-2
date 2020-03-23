@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+var randomProducts = require("mongoose-simple-random");
 const Schema   = mongoose.Schema;
 
-const productsSchema = new Schema(
+let productsSchema = new Schema(
     {
     title: {type: String},
     imgPath: {type: String},
@@ -15,6 +16,11 @@ const productsSchema = new Schema(
 }
 );
 
-const Products = mongoose.model("Products", productsSchema);
+productsSchema.plugin(randomProducts)
 
-module.exports = Products;
+
+const Product = mongoose.model("Product", productsSchema);
+
+
+
+module.exports = Product;

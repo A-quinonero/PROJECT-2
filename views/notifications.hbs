@@ -1,7 +1,8 @@
 <h1 class="titulo2 text-light text-center">Notifications</h1>
-<p class="text-center text-light">This user wants to exchange this creation</p>
+{{#each fullLikeList}}
+<p class="text-center text-light">This wants to exchange </p>
 <ul class="list-group p-5 text-justify">
-  <li class="list-group-item mt-2">Pepe quiere tu producto</li>
+  <li class="list-group-item mt-2">{{user.username}} quiere tu {{product.title}}</li>
 </ul>
-
+{{/each}}
 

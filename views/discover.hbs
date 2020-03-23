@@ -6,11 +6,11 @@
         <option value="wood">Wood</option>
         <option value="photography">Photography</option>
 </select>
-<button class="btn btn-light text-light" type="submit">Go</button>
+<button class="btn btn-go btn-light text-light" type="submit">Go</button>
 </div>
 </form>
 
-<div class="containerd text-center">
+<div class="containerd text-center row">
 {{#each products}}
     <div class="card" style="width: 18rem;">
       <a href="/priv/details/{{id}}"><img  src={{imgPath}} class="card-img-top imagen" alt="..."></a>

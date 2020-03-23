@@ -1,14 +1,104 @@
 body,html{
     background-color:black !important;
     }
+
     @font-face {
         font-family: "fruits";
         src: url('/tipografia/summer fruits personal use.ttf')
     }
-    .btn{
-    background-color: black !important;
+
+    @font-face {
+        font-family: "market-fresh";
+        src: url('/tipografia/Market Fresh.ttf')
     }
+
+    @font-face {
+        font-family: "market-fresh-italic";
+        src: url('/tipografia/Market Fresh Italic.ttf')
+    }
+
+*{
+font-family: "market-fresh";
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+
+/* mobile css */
     
+/* layout */
+
+    .principal{
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important;
+        bottom: 5px !important;
+
+    }
+
+   .log-btn{
+        width: 400px;
+        height: 120px;
+        font-size: 70px !important;
+        border-radius: 50px !important;
+        border: 3px solid white !important;
+        
+    }
+
+    .log-btn :hover{
+        color:black;
+        background-color: white;
+    }
+
+    .navegacion{
+        margin: 40px;
+        padding: 10px;
+        background-color: #343A40;
+        border-radius: 10px;
+        position: relative;
+        }
+    
+    .discover-btn{
+        text-align: left;
+        }
+    
+    .profile{
+        width: 35px !important;
+        }
+        
+    .profile2{
+        width: 45px !important;
+        }
+        
+    .menu{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;            
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+        }
+    
+    .notification {
+           
+        color: white;
+        text-decoration: none;
+        position: relative;
+        display: inline-block;
+        border-radius: 2px;
+        }
+              
+    .notification .badge {
+        position: absolute;
+        top: -2px;
+        right: -25px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        background: red;
+        color: white;
+        }
+
     .titulo{
         position: absolute;
         z-index: 999;
@@ -17,249 +107,353 @@ body,html{
         display: flex;
         justify-content: center;
         top: -15px;
-        
-    }
+        text-decoration: none !important;
+        }
+
+    .btn{
+        background-color: black !important;
+        }
+
     .tituloIndex{
         font-size: 200px;
         font-family: "fruits";
-    }
-    .title{
-    padding-top: 10px;
-    font-size: 65px;
-    
-    color: whitesmoke;
-    }
-    .title2{
-        padding-top: 10px;
-        font-size: 100px;
-        font-family: "fruits";
-        
-        color: whitesmoke;
+        padding-top: 2em;
         }
+
+        
     .accesoAbajo{
-    position: absolute;
-    bottom: 100px;
-    left: 41%;
-    right: 41%;
-    }
-    .form-auth{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-        align-content: stretch;
-    }
-    .containerd{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        flex-wrap: wrap;
-    }
-    .card-body{
-    background-color: #343d46;
-    color: white;
-    padding:0.5rem !important;
-    }
-    .card-title{
-        margin: 0 !important;
-    }
-    .card{
-    max-height: 500px;
-    
-    }
-    .card{
-        max-width: 100%;
-        overflow: hidden;
-        padding: 0;
-        position: relative;
-        margin: 10px;
-    
-    }
-    .card{
-        display: block;
-      max-width: none !important;
-    }
-    .card-img-top{
-        object-fit: cover;
-        height: 300px;
-        width: 200px;
-    }
-    
-    
-    .profile{
-    width: 35px !important;
-    }
-    
-    .profile2{
-        width: 45px !important;
+        position: absolute;
+        bottom: 100px;
+        left: 41%;
+        right: 41%;
         }
-    
-    .navegacion{
-        margin: 40px;
-        padding: 10px;
-        background-color: #343A40;
-        border-radius: 10px;
-        position: relative;
-    }
-    
-    .discover-btn{
-        text-align: left;
-    }
-    
-    .menu{
-    
+
+
+/* index */
+
+.indexcover{
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/fondoswapit.png");
+    background-size: cover;
+}
+.indexcover2{
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/fondologsignswapit.png");
+    background-size: cover;
+}
+
+/* Sign-up and Log-in */
+
+        .title{
+            padding-top: 10px;
+            font-size: 65px;
+            color: whitesmoke;
+            }
+
+        .title2{
+            padding-top: 10px;
+            font-size: 50px;
+            /* font-family: "recoleta"; */
+            color: whitesmoke;
+            }
+            .title3{
+                padding-top: 10px;
+                font-size: 50px;
+               
+                color: whitesmoke;
+                }
+
+        .form-auth{
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             flex-wrap: nowrap;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
-            align-content: center;
-    }
-    
-    .detailImg{
-        object-fit: cover;
-        height: 1100px;
-        width: 900px;
+            align-content: stretch;
         }
-        .notification {
-           
-            color: white;
-            text-decoration: none;
         
-            position: relative;
-            display: inline-block;
-            border-radius: 2px;
-          }
-          
-          
-          .notification .badge {
-            position: absolute;
-            top: -2px;
-            right: -25px;
-            padding: 5px 10px;
-            border-radius: 50%;
-            background: red;
-            color: white;
-          }
-
-.orden{
-font-size: 60px;
-margin: 10px;   
-}
-.orden .btn{   
-font-size: 70px;
-}
-.orden2{
-font-size: 72px;
-}
-.form-auth input{
-    width: 600px ;
-    height: 120px ;
-    font-size: 60px ;
-    }
-.form-auth .btn{
-font-size: 70px;
-margin-top: 10px;
-margin-bottom: 10px;
-}
-.logsign .btn{
-font-size: 70px;
-}
-.errorLog{
-font-size: 50px;
-}
-.form-group select{
-    width: 300px ;
-    height: 100px ;
-    font-size: 30px ;
+        .form-auth input{
+            border-radius: 25px;
+            width: 600px ;
+            height: 120px ;
+            font-size: 60px ;
+            margin-top:5px;
+            }
+            .tituloCreate{
+                font-size: 60px;
+                }
+            .formCreate{
+                padding-top: 70px;
+            }
+                
+.form-auth label{
+font-size: 45px;
 }
 
-.filtro{
-    width: 300px !important;
+        .form-auth .btn{
+            font-size: 70px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 25px;
+            }
+
+        .logsign{
+            margin-top: 30px;
+        }
+        .logsign .btn{
+            font-size: 50px;
+            border-radius: 25px;
+            }
+
+        .errorLog{
+            font-size: 50px;
+            }
+
+        .form-group select{
+            width: 300px ;
+            height: 100px ;
+            font-size: 30px ;
+            }
+
+
+/* Discover page */
+
+            .containerd{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                flex-wrap: wrap;
+                margin-top: 20px;
+                }
+
+            .card-body{
+                background-color: black;
+                color: white;
+                padding: 0.5rem !important;
+                }
+
+            .card-title{
+                margin: -8px 0 0 0 !important;
+                }
     
- }
+            
+                .card{
+                    max-height: 800px;
+                    width: 430px!important;
+                    max-width: 100%;
+                    overflow: hidden;
+                    padding: 0;
+                    position: relative;
+                    margin: 15px;
+                    display: block;
+                    max-width: none !important;
+                    border: 2px solid black !important;
+                    background-color: black !important;
+                    
+                    }
+                    
+                    .card-img-top{
+                        object-fit: cover;
+                        height: 500px;
+                        width: 200px;
+                        border: 3px solid white !important;
+                        border-radius: 25px !important;
+                        
+                
+                    }
+            .filtro{
+                width: 400px !important;
+                font-size: 30px !important;
+             
+                border-radius: 25px !important;
+                }
+            .btn-go{
+                font-size: 30px !important;
+                border-radius: 25px !important;
+                padding: 5px 20px !important;
+                border: 3px solid white !important;
+                
+            }
 
+            .card-body h5{
+                font-size: 2rem;
+            }
+    
+/* Product-details page */
+    
+.detailImg{
+    object-fit: cover;
+    height: 1100px;
+    width: 900px;
+    border-radius: 25px;
+    
+    }
+    .categoryText{
+font-size: 50px;
+    }   
+
+        
+.orden{
+    font-size: 60px;
+    margin: 10px;   
+    }
+    
+.orden .btn{   
+    font-size: 70px;
+    }
+
+.orden2{
+    font-size: 72px;
+    }
+
+
+.inputImg{
+width: 400px !important;
+
+}
+/*Create inputs*/
+.inputDescription{
+font-size: 35px !important;
+height: 400px !important;
+width: 600px !important;
+border-radius: 25px !important;
+}
+.inputCreate{
+font-size: 45px !important;
+border-radius: 25px !important;
+}
+/* Priv inputs */
+.imgProf{
+object-fit: cover;
+height: 80px;
+width: 80px;
+border-radius: 50%;
+
+}
+.profileSettings{
+right: 2% !important;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+justify-content: center;
+padding-right: 50px;
+}
+.textProfile{
+font-size: 30px;
+}
+/* Product details */
+.descripText{
+font-size: 35px;
+padding: 20px;
+margin: 20px;
+text-align: justify;
+}
 /* Desktop css */
 @media screen 
 and (min-device-width: 1200px) 
 and (max-device-width: 1600px) 
 and (-webkit-min-device-pixel-ratio: 1) { 
-    
-.detailImg{
-object-fit: cover;
-height: 500px;
-width: 400px;
-position: absolute;
-left: 50px;
-                
-}
-.orden{
-width: 95%;
-text-align: justify;
-position: absolute;
-padding-left: 500px;
-font-size: 20px !important;
-}
-.profile{
-width: 25px !important;
-}
-.profile2{
-width: 25px !important;
-}
-.titulo{
-position: absolute;
-z-index: 999;
-font-size: 90px!important;
-font-family: "fruits";
-left: 540px;
- top: -25px;
-                        
-}
-.navegacion{
-width: 95%;
-}
-                    
-.orden2{
-font-size: 30px !important;
-}
-.orden .btn{
-                    
-font-size: 20px !important;
-}
-.form-auth input{
-width: 200px !important;
-height: 50px !important;
-font-size: 20px !important;
-}
-.form-auth .btn{
-font-size: 25px !important;
-}
-.logsign .btn{
-font-size: 25px !important;
-}
-.errorLog{
-font-size: 20px !important;
-}
-.tituloIndex{
-    font-size: 90px!important;
-    font-family: "fruits";
-}
-.title2{
-    padding-top: 10px;
-    font-size: 35px!important;
-    font-family: "fruits";
-    
-    color: whitesmoke;
-} 
-.form-group select{
-    width: 150px !important;
-    height: 50px !important;
-    font-size: 15px !important;
-}
 
+/* Layout desktop */
+
+    .titulo{
+        position: absolute;
+        z-index: 999;
+        font-size: 90px!important;
+        font-family: "fruits";
+        left: 540px;
+        top: -25px;                      
+        }
+
+    .navegacion{
+        width: 95%;
+        }
+                        
+    .tituloIndex{
+        font-size: 90px!important;
+        font-family: "fruits";
+        }
+
+    .profile{
+        width: 25px !important;
+        }
+
+    .profile2{
+        width: 25px !important;
+        }
+
+
+
+/* Sign-up and Log-in desktop */
+
+        .form-auth input{
+            width: 200px !important;
+            height: 50px !important;
+            font-size: 20px !important;
+            }
+
+        .form-auth .btn{
+            font-size: 25px !important;
+            }
+
+        .logsign .btn{
+            font-size: 25px !important;
+            }
+
+        .errorLog{
+            font-size: 20px !important;
+            }
+
+        .form-group select{
+            width: 150px !important;
+            height: 50px !important;
+            font-size: 15px !important;
+            }
+        
+        .title2{
+            padding-top: 10px;
+            font-size: 35px!important;
+            font-family: "vintage";
+            color: whitesmoke;
+            } 
+        
+            
+
+
+/* Discover desktop */
+
+
+
+/* Product-details desktop */
+
+            .detailImg{
+                object-fit: cover;
+                height: 500px;
+                width: 400px;
+                position: absolute;
+                left: 50px;              
+                }
+
+            .orden{
+                width: 95%;
+                text-align: justify;
+                position: absolute;
+                padding-left: 500px;
+                font-size: 20px !important;
+                }
+            
+            .orden2{
+                font-size: 30px !important;
+                }
+                
+            .orden .btn{                   
+                font-size: 20px !important;
+                }
+            
 }
     
     

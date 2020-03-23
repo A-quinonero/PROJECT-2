@@ -1,9 +1,10 @@
-<h1 class="text-center text-light">Create a new Product:</h1>
+<div class="formCreate">
+<h1 class="text-center text-light tituloCreate">Create a new Product:</h1>
 
 <form class="form-auth text-center" action="/priv/create-have" method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label class="text-light" for="formGroupExampleInput">Title</label>
-    <input name="title" type="text" class="form-control text-center" id="formGroupExampleInput" placeholder="Title">
+    <input name="title" type="text" class="form-control text-center inputCreate" id="formGroupExampleInput" placeholder="Title">
   </div>
    <div class="form-group">
     <label class="text-light" for="formGroupExampleInput2">Image</label>
@@ -11,12 +12,12 @@
   </div>
   
   <div class="form-group">
-    <label class="text-light" for="formGroupExampleInput4">Description</label>
-    <input name="description" type="text" class="form-control text-center" id="formGroupExampleInput4" placeholder="Description">
+    <label class="text-light " for="formGroupExampleInput4">Description</label>
+    <textarea name="description" type="text" class="form-control  inputDescription" id="formGroupExampleInput4" placeholder="Description here..."></textarea>
   </div>
   <div class="form-group">
     <label  class="text-light" for="formGroupExampleInput3">Category</label>
-    <select name="category" type="text" class="form-control text-center" id="formGroupExampleInput3" placeholder="category">
+    <select name="category" type="text" class="form-control text-center inputCreate" id="formGroupExampleInput3" placeholder="category">
         <option value="drawings">Drawings</option>
         <option value="handmade">Handmade</option>
         <option value="wood">Wood</option>
@@ -26,6 +27,7 @@
 
   <button class="btn btn-light text-light" type="submit"> Create! </button>
 </form>
+</div>
 
 {{#if message}}
     <p class="text-light" >{{message}}</p>

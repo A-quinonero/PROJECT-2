@@ -2,10 +2,8 @@ var express = require("express");
 var router = express.Router();
 
 const User = require("../models/User.js");
-const Products = require("../models/Products.js");
+const Product = require("../models/Product.js");
 const uploadCloud = require("../config/cloudinary.js");
-
-
 const userIsLoggedIn = require("../middlewares/auth-mid").userIsLoggedIn;
 router.use((req, res, next) => userIsLoggedIn(req, res, next));
 
@@ -38,7 +36,7 @@ router.post(
     const { title, description, category } = req.body;
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
-    const newProduct = await Products.create({ title, description, category, creator:userId, imgPath, imgName });
+    const newProduct = await Product.create({ title, description, category, creator:userId, imgPath, imgName });
 
     await User.updateOne({ _id: userId }, { $push: { haveList: newProduct._id } });
 
@@ -54,21 +52,23 @@ router.post("/categories", async(req,res,next)=>{
 
   const {category} = req.body
 
-  const filterCategory = await Products.find({ category })
+  const filterCategory = await Product.find({ category })
 
   res.render("discover", {products: filterCategory, userLog});
 })
 
 
 
-router.get("/discover", async (req, res, next) => {
+router.get("/discover", (req, res, next) => {
     const userLog = req.session.currentUser
     
+  Product.findRandom({ creator: { $ne: req.session.currentUser._id } }, {}, {limit: 9999999}, function(err, randomProducts) {
+    if (!err) {
+      console.log(typeof randomProducts)
+      res.render("discover", {  products: randomProducts , userLog });
+    }
+  })
 
-  let randomProducts = await Products.find({ creator: { $ne: req.session.currentUser._id } })
-  //let randomProducts = await Products.aggregate([ { $sample: { size: 15 } } ])
-  //var randomValue = randomProducts[Math.floor(randomProducts.length * Math.random())]
-res.render("discover", {  products: randomProducts , userLog });
 });
 
 
@@ -80,14 +80,26 @@ router.get("/product-details",(req,res,next)=>{
 router.get("/details/:id", async (req, res, next) => {
     const userLog = req.session.currentUser
     const { id } = req.params;
-   let detailProduct = await Products.findById(id)
+   let detailProduct = await Product.findById(id)
    console.log(detailProduct)
   
      res.render("product-details.hbs", {detailProduct, userLog})
   });
-router.get("/notifications",(req,res,next)=>{
+router.get("/notifications", async (req,res,next)=>{
+  
     const userLog = req.session.currentUser
-    res.render("notifications.hbs",{userLog})
+    const likeList = userLog.likeList
+
+    let fullLikeList =  await likeList.map(async(obj) => {
+      console.log(obj)
+    let user =  await User.findById(obj.userwhoLikes)
+    let product = await Product.findById(obj.productLiked)
+  console.log("ODIOOOOOO",user.username, product.title)
+  return {user,product}
+})
+console.log("hellooooo", fullLikeList)
+res.render("notifications.hbs",{fullLikeList})
+
 })
 
 
@@ -95,14 +107,16 @@ router.get("/want/:id", async (req, res, next) => {
   const userId = req.session.currentUser._id;
   const { id } = req.params;
   await User.updateOne({_id: userId}, { $push: {wantList: id} })
-
+  let productSelected = await Product.findById(id)
+  let creatorProduct = await User.findByIdAndUpdate(productSelected.creator, {$push: {likeList:{userwhoLikes: userId , productLiked:id}}})
    res.redirect("/priv")
 });
+
 
 router.get("/delete-have/:_id", async (req, res, next) => {
   const { _id } = req.params;
 
-  await Products.findOneAndDelete({ _id });
+  await Product.findOneAndDelete({ _id });
 
   res.redirect("/priv/");
 });

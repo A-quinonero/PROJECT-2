@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bcrypt = require("bcryptjs");
+const uploadCloud = require("../config/cloudinary.js");
 var bcryptSalt = 10;
 
 const User = require("../models/User.js");
@@ -16,9 +17,10 @@ router.get("/signup", (req, res, next) => {
 
 
 // podeis quitar los .hbs y funciona igual.
-router.post("/signup", (req, res, next)=>{
+router.post("/signup", uploadCloud.single("photo"),async (req, res, next)=>{
     const {username, password, repeatPassword} = req.body
-
+    const imgPath = req.file.url;
+    const imgName = req.file.originalname;
     if(!username || !password){
         res.render("sign-up.hbs", {errorMessage:"Please fill all the fields"})
         return;
@@ -30,25 +32,17 @@ router.post("/signup", (req, res, next)=>{
     }
 
     User.findOne({username})
-    .then(user => {
-        if (user){
-            res.render("sign-up", {errorMessage: "The userName already exists"})
-            return;
-        }
-
+    
         const salt = bcrypt.genSaltSync(bcryptSalt)
         const hashPass = bcrypt.hashSync(password, salt)
-        User.create({username, "password": hashPass})
-        .then((user)=>{
+        let newUser = await User.create({username, imgPath, imgName, "password": hashPass})
+
             
-            req.session.currentUser = user;
+            req.session.currentUser = newUser;
             res.redirect("/priv/discover")
         })
-        .catch(err => console.log("Error at posting singup: " + err))
-    })
-    .catch(err => console.log("error finding the user in DB: " + err))
 
-})
+
 
 router.get("/login", (req, res, next)=>{
     // renderizar las vistas de login
