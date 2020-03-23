@@ -4,8 +4,8 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: {type: String, required: true, unique: true},
   password: {type: String, required: true}, 
-  haveList: [{ type: Schema.Types.ObjectId, ref: "Products"} ],
-  wantList: [{ type: Schema.Types.ObjectId, ref: "Products"} ],
+  haveList: [{ type: Schema.Types.ObjectId, ref: "Product"} ],
+  wantList: [{ type: Schema.Types.ObjectId, ref: "Product"} ],
   isUser: { type: Boolean, default: false } 
 }, {
   timestamps: true
