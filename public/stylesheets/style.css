@@ -64,11 +64,12 @@ html{
         }
     
     .profile{
-        width: 35px !important;
+        width: 70px !important;
+        
         }
         
     .profile2{
-        width: 45px !important;
+        width: 70px !important;
         }
         
     .menu{
@@ -102,11 +103,12 @@ html{
     .titulo{
         position: absolute;
         z-index: 999;
-        font-size: 90px;
+        font-size: 130px;
         font-family: "fruits";
         display: flex;
         justify-content: center;
         top: -15px;
+        right: 245px;
         text-decoration: none !important;
         }
 
