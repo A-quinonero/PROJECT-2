@@ -107,7 +107,7 @@ router.get("/notifications", async (req, res, next) => {
     }
     getData().then(fullLikeList => {
 
-      res.render("notifications.hbs", { fullLikeList});
+      res.render("notifications.hbs", { fullLikeList, userLog });
     })
 
 }catch(err){
