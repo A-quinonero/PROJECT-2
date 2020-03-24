@@ -40,9 +40,7 @@ router.post("/signup", uploadCloud.single("photo"),async (req, res, next)=>{
             
             req.session.currentUser = newUser;
             res.redirect("/priv/discover")
-        })
-
-
+})
 
 router.get("/login", (req, res, next)=>{
     // renderizar las vistas de login

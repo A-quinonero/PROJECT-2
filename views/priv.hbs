@@ -25,7 +25,7 @@
   <div class="card-body">
     <h5 class="card-title">{{this.title}}</h5>
     <p class="card-text"><i>{{this.category}}</i></p>
-    <a class="" href="/priv/delete-want/{{this._id}}"><img class="bin" src="/images/trash-alt-solid.svg" srcset=""></a>
+    <a class="" href="/priv/delete-want/{{this._id}}"><img class="bin" src="/images/trash-alt-solid.png" srcset=""></a>
   </div>
 </div>
 {{/each}}
@@ -38,7 +38,7 @@
 <button class="btn btn-light text-light">Add</button>
 </form>
 </div>
-<h1 class="title2 text-center">Creations</h1>
+<h1 class="title3 text-center">Creations</h1>
 <form class="d-flex justify-content-center align-items-center text-center" action="/priv/create-have">
 <button class="btn btn-light text-light">Add Some</button>
 </form>
@@ -51,7 +51,7 @@
   <div class="card-body">
     <h5 class="card-title">{{this.title}}</h5>
     <p class="card-text"><i>{{this.category}}</i></p>
-    <a href="/priv/delete-have/{{this._id}}" class="btn btn-light text-light">Delete</a>
+    <a href="/priv/delete-have/{{this._id}}" class=""><img class="bin" src="/images/trash-alt-solid.png" srcset=""></a>
   </div>
 </div>
 {{/each}}

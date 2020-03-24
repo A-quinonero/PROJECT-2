@@ -206,6 +206,14 @@ font-size: 45px;
             font-size: 50px;
             border-radius: 25px;
             }
+        .signlog{
+        font-size: 50px !important;
+        border-radius: 25px !important;
+        border: 3px solid white !important;
+        }
+        .textSignLog{
+        font-size: 45px !important;
+        }
 
         .errorLog{
             font-size: 50px;
@@ -309,7 +317,11 @@ font-size: 50px;
 .orden2{
     font-size: 72px;
     }
+.orden3{
+border-radius: 25px !important;
+border: 3px solid white !important;
 
+}
 
 .inputImg{
 width: 400px !important;
@@ -342,10 +354,12 @@ margin-bottom: 10px;
 .botones-priv{
     padding-left: 20px !important;
 }
+
 .bin{
-    background-color:white !important;
-    width: 100px;
-    border: 1px solid white
+    width: 50px !important;
+    border: 1px solid white !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
 }
 .profileSettings{
 right: 2% !important;
