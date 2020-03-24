@@ -77,6 +77,21 @@ router.get("/discover", (req, res, next) => {
   );
 });
 
+
+router.get("/private-details", (req, res, next) => {
+  const userLog = req.session.currentUser;
+  res.render("private-details.hbs", { userLog });
+});
+router.get("/select/:id", async (req, res, next) => {
+  const userLog = req.session.currentUser;
+  const { id } = req.params;
+  let selectProduct = await Product.findById(id);
+  console.log(selectProduct);
+
+  res.render("private-details.hbs", { selectProduct, userLog });
+});
+
+
 router.get("/product-details", (req, res, next) => {
   const userLog = req.session.currentUser;
   res.render("product-details.hbs", { userLog });
@@ -89,6 +104,8 @@ router.get("/details/:id", async (req, res, next) => {
 
   res.render("product-details.hbs", { detailProduct, userLog });
 });
+
+
 
 router.get("/notifications", async (req, res, next) => {
   try{
