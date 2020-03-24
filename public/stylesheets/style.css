@@ -65,7 +65,10 @@ html{
     
     .profile{
         width: 70px !important;
+<<<<<<< HEAD
         
+=======
+>>>>>>> a43e2e1abd968de2a7dab92a762697d2a0060942
         }
         
     .profile2{
@@ -107,9 +110,14 @@ html{
         font-family: "fruits";
         display: flex;
         justify-content: center;
+<<<<<<< HEAD
         top: -15px;
         right: 245px;
+=======
+        top: -25px;
+>>>>>>> a43e2e1abd968de2a7dab92a762697d2a0060942
         text-decoration: none !important;
+        right: 245px;
         }
 
     .btn{
