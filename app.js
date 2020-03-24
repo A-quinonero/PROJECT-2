@@ -1,3 +1,4 @@
+require("dotenv").config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -7,7 +8,6 @@ var mongoose = require("mongoose");
 var session = require("express-session");
 var MongoStore = require("connect-mongo")(session);
 
-require("dotenv").config();
 
 var indexRouter = require('./routes/index');
 var privRouter = require('./routes/priv');
@@ -19,7 +19,7 @@ var app = express();
 
 mongoose
 
-  .connect(`mongodb://localhost/project-2`, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
