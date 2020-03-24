@@ -1,8 +1,11 @@
 <h1 class="titulo2 text-light text-center">Notifications</h1>
 {{#each fullLikeList}}
-<p class="text-center text-light">This wants to exchange </p>
 <ul class="list-group p-5 text-justify">
-  <li class="list-group-item mt-2">{{user.username}} quiere tu {{product.title}}</li>
+  <li class="list-group-item mt-2 text-center textNoti">{{user.username}} quiere tu {{product.title}}</li>
+  <div class="text-center ">
+    <a class="btn btn-success m-2 btnNot" href="">Accept</a>
+    <a class="btn btn-danger m-2 btnNot" href="">Refuse</a>
+  </div>
 </ul>
 {{/each}}
 
