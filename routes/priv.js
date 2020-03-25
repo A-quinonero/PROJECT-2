@@ -100,7 +100,7 @@ router.get("/details/:id", async (req, res, next) => {
   const userLog = req.session.currentUser;
   const { id } = req.params;
   let detailProduct = await Product.findById(id);
-  console.log(detailProduct);
+  //console.log(detailProduct);
 
   res.render("product-details.hbs", { detailProduct, userLog });
 });
@@ -111,6 +111,8 @@ router.get("/notifications", async (req, res, next) => {
   try{
   const userLog = req.session.currentUser;
   const likeList = userLog.likeList;
+  let wantList = await User.findById(userLog._id).populate("wantList")
+  //console.log(`want want ${wantList.wantList}`)
 
     const anAsyncFunction = async obj => {
       let user = await User.findById(obj.userwhoLikes);
@@ -123,8 +125,30 @@ router.get("/notifications", async (req, res, next) => {
       return Promise.all(likeList.map(item => anAsyncFunction(item)))
     }
     getData().then(fullLikeList => {
+        //console.log(`FULL LIKE LIST ${fullLikeList[0].user}`)
+    
+       //let matx = fullLikeList.filter(item => wantList.wantList.map(item2 => item.userwhoLikes._id == item2.creator));
+        let matches
+        fullLikeList.forEach(obj => {
+          let likeListArr = obj.user.likeList
+          likeListArr.map(function(item1){
+            //let likeListArr = item1.user.likeList
+            //console.log(item1.user.likeList)
+            wantList.wantList.map(function(item2){
+              console.log(`item1.userwhoLikes._id ${item1.userwhoLikes._id}`)
+              console.log(`item2. creator ${item2.creator}`)
+              if (item1.userwhoLikes._id === item2.creator){
+                matches.push({'userLikes': item1, 'iLike': item2 })
+                
+              }
+            })
+          })
+          console.log(`MATCHEEEES! ${matches}`);
+        })
+        
 
-      res.render("notifications.hbs", { fullLikeList, userLog });
+
+      res.render("notifications.hbs", { fullLikeList, userLog, matches });
     })
 
 }catch(err){
