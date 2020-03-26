@@ -110,15 +110,14 @@ router.get("/details/:id", async (req, res, next) => {
 router.get("/notifications", async (req, res, next) => {
   try {
     const myId = req.session.currentUser._id;
-    const myUserHave = await User.findOne({ _id: myId }).populate("haveList");
     const userLog = req.session.currentUser;
     const likeList = userLog.likeList;
     let wantList = await User.findById(userLog._id).populate("wantList");
-    //console.log(`want want ${wantList.wantList}`)
+    console.log(`want want ${wantList.wantList}`)
     const anAsyncFunction = async obj => {
       let user = await User.findById(obj.userwhoLikes);
       let product = await Product.findById(obj.productLiked);
-      console.log(product)
+      console.log('USEEEEER:',user._id)
       return { user, product };
     };
     const getData = async () => {
@@ -134,10 +133,12 @@ router.get("/notifications", async (req, res, next) => {
       //const start = async () => {
         await asyncForEach(fullLikeList, async obj => {
           let likeListArr = obj.user.likeList;
-          await likeListArr.map(async function(item1) {
-             await wantList.wantList.map(async function(item2) {
-             // console.log('test',item1.userwhoLikes._id, item2.creator)
-              if (item1.userwhoLikes._id.equals(item2.creator)) {
+          
+          await fullLikeList.map(async function(item1) {
+            //está cogiendo el id del creador propio.
+            await wantList.wantList.map(async function(item2) {
+              console.log('test',item1.user._id , item2.creator)
+              if (item1.user._id.equals(item2.creator)) {
                 matches.push({ userLikes: item1, iLike: item2 });
               }else{
                 console.log('chorizo')
@@ -147,7 +148,7 @@ router.get("/notifications", async (req, res, next) => {
           console.log('PROTEEEST:',matches);
         });
       //};
-      res.render("notifications.hbs", { fullLikeList, userLog, matches, myUserHave});
+      res.render("notifications.hbs", { fullLikeList, userLog, matches});
     });
   } catch (err) {
     console.log(err);
