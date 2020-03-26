@@ -58,6 +58,14 @@ html{
         border-radius: 10px;
         position: relative;
         }
+        .notiContainer{
+        background-color: rgb(114, 114, 114) !important;
+
+        }
+        .notiBody{
+        border-radius: 25px !important;
+        }
+        
     
     .discover-btn{
         text-align: left;
@@ -99,6 +107,7 @@ html{
         background: red;
         color: white;
         }
+        
 .textNoti{
 font-size: 40px !important;
 border-radius: 25px !important;
