@@ -1,23 +1,28 @@
   <h1 class="titulo2 text-light text-center">Matches</h1>
 
-  {{#each matches}}
+  {{#each filterMatch}}
 <ul class="list-group p-5 text-justify ">
   <li class="list-group-item mt-2 textNoti bg-warning text-light">
-    <div class="d-flex justify-content-around align-items-center">
-      <div><img class="imgProf"src="{{iLike.imgPath}}" alt="">
-      </div>
      
-      <div><p>You wants to swap <b>{{iLike.title}}</b></p>
+    <div class="d-flex justify-content-around align-items-center">
+      <div><img class="imgProf"src="{{userLikes.user.imgPath}}" alt="">
       </div>
-      
+      <div>
+      <h1 class="titleMatch">You have a match!</h1>
+      </div>
     <div><a class="navbar-brand profile2 arrow" href=""><img src="/images/chevron-down-solid.svg" srcset=""></a>
     </div>
     </div>
-    
-  <div class="text-center mt-3">
-    <a class="btn m-2 btnGreen" href="">Accept</a>
-    <a class="btn m-2 btnRed" href="/priv/notifications/delacc-noti/{{userLikes.id}}">Refuse</a>
-  </div>
+    <div class="d-flex justify-content-around align-items-center">
+      <p>{{userLikes.user.username}} wants swap his {{iLike.title}} for your {{userLikes.product.title}}</p>
+    </div>
+    <div class="d-flex justify-content-around align-items-center">
+
+      <div><img class="imgProf"src="{{iLike.imgPath}}" alt=""></div>
+       <div><img class="imgProf2"src="/images/exchange-alt-solid.png" alt=""></div>
+      <div><img class="imgProf"src="{{userLikes.product.imgPath}}" alt=""></div>
+      
+    </div>
 </ul>
 </li>
 {{/each}}
@@ -26,15 +31,15 @@
    
 <h1 class="titulo2 text-light text-center">Notifications</h1>
 {{#each fullLikeList}}
-
+{{#unless viewed}}
 
 <ul class="list-group p-5 text-justify ">
   <li class="list-group-item mt-2 textNoti bg-dark text-light">
     <div class="d-flex justify-content-around align-items-center">
       <div><img class="imgProf"src="{{user.imgPath}}" alt="">
       </div>
-     
-      <div><p><b>{{user.username}}</b> wants to swap  your {{product.title}}.</p>
+
+      <div><p><b>{{user.likeList.viewed}}</b> wants to swap  your {{product.title}}.</p>
       </div>
       
     <div><a class="navbar-brand profile2 arrow" href=""><img src="/images/chevron-down-solid.svg" srcset=""></a>
@@ -44,12 +49,12 @@
 
 
   <div class="text-center mt-3">
-    <a class="btn m-2 btnGreen" href="">Accept</a>
-    <a class="btn m-2 btnRed" href="/priv/notifications/delacc-noti/{{userLikes.id}}">Refuse</a>
+    <a class="btn m-2 btnRed" href="/priv/notifications/delacc-noti/{{user._id}}/{{product._id}}">Hide</a>
     <a class="btn m-2 btnWhite" href="">View  creations</a>
   </div>
 </ul>
   </li>
+ {{/unless}}
   {{/each}}
 
 

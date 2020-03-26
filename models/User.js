@@ -9,7 +9,10 @@ const userSchema = new Schema({
   haveList: [{ type: Schema.Types.ObjectId, ref: "Product"} ],
   wantList: [{ type: Schema.Types.ObjectId, ref: "Product"} ],
   likeList: [{userwhoLikes:{ type: Schema.Types.ObjectId, ref: "User"},
-              productLiked:{ type: Schema.Types.ObjectId, ref: "Product"}}
+              productLiked:{ type: Schema.Types.ObjectId, ref: "Product"},
+              viewed: false
+            }
+            
  ],
   isUser: { type: Boolean, default: false } 
 }, {

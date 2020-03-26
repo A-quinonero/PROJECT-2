@@ -77,7 +77,6 @@ router.get("/discover", (req, res, next) => {
   );
 });
 
-
 router.get("/private-details", (req, res, next) => {
   const userLog = req.session.currentUser;
   res.render("private-details.hbs", { userLog });
@@ -90,7 +89,6 @@ router.get("/select/:id", async (req, res, next) => {
 
   res.render("private-details.hbs", { selectProduct, userLog });
 });
-
 
 router.get("/product-details", (req, res, next) => {
   const userLog = req.session.currentUser;
@@ -105,21 +103,25 @@ router.get("/details/:id", async (req, res, next) => {
   res.render("product-details.hbs", { detailProduct, userLog });
 });
 
-
-
 router.get("/notifications", async (req, res, next) => {
   try {
     const myId = req.session.currentUser._id;
-    const userLog = req.session.currentUser;
+    const userLog = await User.findById(myId)
     const likeList = userLog.likeList;
+   // console.log('HOLAAAAA',notifications)
+    //let notifications = likeList.filter(item => item.viewed == false)
+    //let notifications = await User.findById(myId).populate("likeList")
+    
     let wantList = await User.findById(userLog._id).populate("wantList");
-    console.log(`want want ${wantList.wantList}`)
+    //console.log(`want want ${wantList.wantList}`);
     const anAsyncFunction = async obj => {
       let user = await User.findById(obj.userwhoLikes);
       let product = await Product.findById(obj.productLiked);
-      console.log('USEEEEER:',user._id)
-      return { user, product };
+      //en likeList.userwhoLikes deberia ser igual a user._id y además likeList.productLiked tendría que ser igual a product-_id
+      let viewed = obj.viewed
+      return { user, product, viewed};
     };
+
     const getData = async () => {
       return Promise.all(likeList.map(item => anAsyncFunction(item)));
     };
@@ -128,27 +130,38 @@ router.get("/notifications", async (req, res, next) => {
         await callback(array[index], index, array);
       }
     }
-    getData().then( async fullLikeList => {
+
+    getData().then(async fullLikeList => {
+      //console.log("FULLLIKELIST:", fullLikeList);
       let matches = [];
+      let filterMatch;
       //const start = async () => {
-        await asyncForEach(fullLikeList, async obj => {
-          let likeListArr = obj.user.likeList;
-          
-          await fullLikeList.map(async function(item1) {
-            //está cogiendo el id del creador propio.
-            await wantList.wantList.map(async function(item2) {
-              console.log('test',item1.user._id , item2.creator)
-              if (item1.user._id.equals(item2.creator)) {
-                matches.push({ userLikes: item1, iLike: item2 });
-              }else{
-                console.log('chorizo')
-              }
-            });
+      await asyncForEach(fullLikeList, async obj => {
+        await fullLikeList.map(async function(item1) {
+          //está cogiendo el id del creador propio.
+          await wantList.wantList.map(async function(item2) {
+            console.log("test", item1.user._id, item2.creator);
+            if (item1.user._id.equals(item2.creator)) {
+              matches.push({ userLikes: item1, iLike: item2 });
+            } else {
+              console.log('chorizo')
+            }
           });
-          console.log('PROTEEEST:',matches);
         });
-      //};
-      res.render("notifications.hbs", { fullLikeList, userLog, matches});
+        filterMatch = matches.filter(
+          (thing, index, self) =>
+            index ===
+            self.findIndex(
+              t =>
+                t.iLike._id === thing.iLike._id &&
+                t.iLike.title === thing.iLike.title
+            )
+        );
+
+        console.log('PROTEEEST:',filterMatch);
+      });
+
+      res.render("notifications.hbs", { fullLikeList, userLog, filterMatch});
     });
   } catch (err) {
     console.log(err);
@@ -163,26 +176,35 @@ router.get("/want/:id", async (req, res, next) => {
   let creatorProduct = await User.findByIdAndUpdate(productSelected.creator, {
     $push: { likeList: { userwhoLikes: userId, productLiked: id } }
   });
-  
+
   res.redirect("/priv");
 });
 
-
-
 router.get("/delete-have/:_id", async (req, res, next) => {
   const { _id } = req.params;
-  
 
   await Product.findOneAndDelete({ _id });
 
   res.redirect("/priv/");
 });
-router.get("/delacc-noti:id", async (req, res, next) => {
+router.get(
+  "/notifications/delacc-noti/:userid/:productid",
+  async (req, res, next) => {
+    const userId = req.session.currentUser._id;
+    const { userid, productid } = req.params;
+    console.log(userid, productid);
 
-  const {id} = req.params;
-  await User.findOneAndDelete({likeList: id});
-  res.redirect("/notifications");
-});
+    await User.findOneAndUpdate(
+      {
+        _id: userId,
+        "likeList.userwhoLikes": userid,
+        "likeList.productLiked": productid
+      },
+      { $set: { "likeList.$.viewed": true} }
+    );
+    res.redirect("/priv/notifications");
+  }
+);
 
 router.get("/delete-want/:id", async (req, res, next) => {
   const userId = req.session.currentUser._id;
@@ -192,7 +214,6 @@ router.get("/delete-want/:id", async (req, res, next) => {
   res.redirect("/priv");
 });
 //boton de delete o accept swap.
-
 
 router.get("/logout", (req, res, next) => {
   delete req.session.currentUser;

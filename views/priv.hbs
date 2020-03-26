@@ -39,8 +39,8 @@
 <div class="collapse creations" id="collapseExample2">
 <h1 class="title3 text-center">Creations</h1>
 
-<form class="d-flex justify-content-center align-items-center text-center" action="/priv/create-have">
-<button class="btn btn-light text-light addbtn"><img src="/images/plus-solid.svg" srcset=""></button>
+<form class="d-flex justify-content-center align-items-center text-center mb-3" action="/priv/create-have">
+<button class="text-light"><img class="bin" src="/images/plus-solid-white.png" srcset="">Add some</button>
 </form>
 
   <div class="containerd text-center">
@@ -50,7 +50,8 @@
   <div class="card-body">
    <a href="/priv/select/{{id}}"><h5 class="card-title text-light"><i>{{title}}</i></h5></a>
     <p class="card-text"><i>{{this.category}}</i></p>
-    <a href="/priv/delete-have/{{this._id}}" class=""><img class="bin" src="/images/trash-alt-solid.png" srcset=""></a>
+   
+    <a href="/priv/delete-have/{{this._id}}" class="text-light"><img class="bin" src="/images/trash-alt-solid.png" srcset=""></a>
   </div>
 </div>
 {{/each}}

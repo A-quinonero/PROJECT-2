@@ -403,6 +403,12 @@ border-radius: 50%;
 margin-bottom: 10px;
 
 }
+.imgProf2{
+
+    height: 120px;
+    width: 120px;
+    
+    }
 .wish-creation-btn{
     display: flex !important;
     justify-content: center !important;
@@ -451,6 +457,18 @@ text-align: justify;
     position:absolute;
     top: 40px;
     left: 90px;
+    
+}
+.gobackcontenedor2{
+    
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    width: 90px !important;
+    height: 90px !important;
+    position:absolute;
+    top: 220px;
+    left: 90px;
+    border: 2px solid white !important;
 }
 .padre-details{
     position:relative;
