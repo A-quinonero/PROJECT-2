@@ -1,25 +1,58 @@
 <h1 class="titulo2 text-light text-center">Notifications</h1>
 {{#each fullLikeList}}
+
+
 <ul class="list-group p-5 text-justify ">
   <li class="list-group-item mt-2 textNoti bg-dark text-light">
     <div class="d-flex justify-content-around align-items-center">
       <div><img class="imgProf"src="{{user.imgPath}}" alt="">
       </div>
-      <div><p><b>{{user.username}}</b> wants to swap one of your creations.</p>
+     
+      <div><p><b>{{user.username}}</b> wants to swap  your {{product.title}}.</p>
       </div>
+      
     <div><a class="navbar-brand profile2 arrow" href=""><img src="/images/chevron-down-solid.svg" srcset=""></a>
     </div>
     </div>
     
 
+
   <div class="text-center mt-3">
     <a class="btn m-2 btnGreen" href="">Accept</a>
-    <a class="btn m-2 btnRed" href="">Refuse</a>
-    <a class="btn m-2 btnWhite" href="">View {{user.username}} creations</a>
+    <a class="btn m-2 btnRed" href="/priv/notifications/delacc-noti/{{userLikes.id}}">Refuse</a>
+    <a class="btn m-2 btnWhite" href="">View  creations</a>
   </div>
 </ul>
- 
   </li>
-{{/each}}
+  {{/each}}
+  <h1 class="titulo2 text-light text-center">Matches</h1>
+{{#each matches}}
+<ul class="list-group p-5 text-justify ">
+  <li class="list-group-item mt-2 textNoti bg-warning text-light">
+    <div class="d-flex justify-content-around align-items-center">
+      <div><img class="imgProf"src="{{iLike.imgPath}}" alt="">
+      </div>
+     
+      <div><p>You wants to swap <b>{{iLike.title}}</b></p>
+      </div>
+      
+    <div><a class="navbar-brand profile2 arrow" href=""><img src="/images/chevron-down-solid.svg" srcset=""></a>
+    </div>
+    </div>
+    
+  <div class="text-center mt-3">
+    <a class="btn m-2 btnGreen" href="">Accept</a>
+    <a class="btn m-2 btnRed" href="/priv/notifications/delacc-noti/{{userLikes.id}}">Refuse</a>
+  </div>
+</ul>
+  </li>
+ {{/each}}
+ 
+   
+
+
+
+
+
 
 

@@ -108,55 +108,52 @@ router.get("/details/:id", async (req, res, next) => {
 
 
 router.get("/notifications", async (req, res, next) => {
-  try{
-  const userLog = req.session.currentUser;
-  const likeList = userLog.likeList;
-  let wantList = await User.findById(userLog._id).populate("wantList")
-  //console.log(`want want ${wantList.wantList}`)
-
+  try {
+    const myId = req.session.currentUser._id;
+    const myUserHave = await User.findOne({ _id: myId }).populate("haveList");
+    const userLog = req.session.currentUser;
+    const likeList = userLog.likeList;
+    let wantList = await User.findById(userLog._id).populate("wantList");
+    //console.log(`want want ${wantList.wantList}`)
     const anAsyncFunction = async obj => {
       let user = await User.findById(obj.userwhoLikes);
       let product = await Product.findById(obj.productLiked);
-     
-      return {user, product}
-    }
-
+      console.log(product)
+      return { user, product };
+    };
     const getData = async () => {
-      return Promise.all(likeList.map(item => anAsyncFunction(item)))
+      return Promise.all(likeList.map(item => anAsyncFunction(item)));
+    };
+    async function asyncForEach(array, callback) {
+      for (let index = 0; index < array.length; index++) {
+        await callback(array[index], index, array);
+      }
     }
-    getData().then(fullLikeList => {
-        //console.log(`FULL LIKE LIST ${fullLikeList[0].user}`)
-    
-       //let matx = fullLikeList.filter(item => wantList.wantList.map(item2 => item.userwhoLikes._id == item2.creator));
-        let matches
-        fullLikeList.forEach(obj => {
-          let likeListArr = obj.user.likeList
-          likeListArr.map(function(item1){
-            //let likeListArr = item1.user.likeList
-            //console.log(item1.user.likeList)
-            wantList.wantList.map(function(item2){
-              console.log(`item1.userwhoLikes._id ${item1.userwhoLikes._id}`)
-              console.log(`item2. creator ${item2.creator}`)
-              if (item1.userwhoLikes._id === item2.creator){
-                matches.push({'userLikes': item1, 'iLike': item2 })
-                
+    getData().then( async fullLikeList => {
+      let matches = [];
+      //const start = async () => {
+        await asyncForEach(fullLikeList, async obj => {
+          let likeListArr = obj.user.likeList;
+          await likeListArr.map(async function(item1) {
+             await wantList.wantList.map(async function(item2) {
+             // console.log('test',item1.userwhoLikes._id, item2.creator)
+              if (item1.userwhoLikes._id.equals(item2.creator)) {
+                matches.push({ userLikes: item1, iLike: item2 });
+              }else{
+                console.log('chorizo')
               }
-            })
-          })
-          console.log(`MATCHEEEES! ${matches}`);
-        })
-        
-
-
-      res.render("notifications.hbs", { fullLikeList, userLog, matches });
-    })
-
-}catch(err){
-  console.log(err)
-  next(err)
-}
+            });
+          });
+          console.log('PROTEEEST:',matches);
+        });
+      //};
+      res.render("notifications.hbs", { fullLikeList, userLog, matches, myUserHave});
+    });
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
 });
-
 router.get("/want/:id", async (req, res, next) => {
   const userId = req.session.currentUser._id;
   const { id } = req.params;
@@ -165,15 +162,25 @@ router.get("/want/:id", async (req, res, next) => {
   let creatorProduct = await User.findByIdAndUpdate(productSelected.creator, {
     $push: { likeList: { userwhoLikes: userId, productLiked: id } }
   });
+  
   res.redirect("/priv");
 });
 
+
+
 router.get("/delete-have/:_id", async (req, res, next) => {
   const { _id } = req.params;
+  
 
   await Product.findOneAndDelete({ _id });
 
   res.redirect("/priv/");
+});
+router.get("/delacc-noti:id", async (req, res, next) => {
+
+  const {id} = req.params;
+  await User.findOneAndDelete({likeList: id});
+  res.redirect("/notifications");
 });
 
 router.get("/delete-want/:id", async (req, res, next) => {
@@ -183,6 +190,9 @@ router.get("/delete-want/:id", async (req, res, next) => {
 
   res.redirect("/priv");
 });
+//boton de delete o accept swap.
+
+
 router.get("/logout", (req, res, next) => {
   delete req.session.currentUser;
   res.redirect("/");
