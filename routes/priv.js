@@ -128,7 +128,7 @@ router.get("/notifications", async (req, res, next) => {
         //console.log(`FULL LIKE LIST ${fullLikeList[0].user}`)
     
        //let matx = fullLikeList.filter(item => wantList.wantList.map(item2 => item.userwhoLikes._id == item2.creator));
-        let matches
+       let matches
         fullLikeList.forEach(obj => {
           let likeListArr = obj.user.likeList
           likeListArr.map(function(item1){
@@ -139,7 +139,9 @@ router.get("/notifications", async (req, res, next) => {
               console.log(`item2. creator ${item2.creator}`)
               if (item1.userwhoLikes._id === item2.creator){
                 matches.push({'userLikes': item1, 'iLike': item2 })
+                console.log(`it match: ${matches}`)
                 
+              
               }
             })
           })
