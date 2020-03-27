@@ -446,11 +446,17 @@ margin-bottom: 10px;
     justify-content: center !important;
 }
 
+.addmore{
+    border-radius: 10px !important;
+    border: 3px solid #DCE1DE  !important;
 
+}
+.addtext{
+    font-size: 30px !important;
+    color:  #DCE1DE  !important;
+}
 .bin{
     width: 50px !important;
-    border: 3px solid #DCE1DE  !important;
-    border-radius: 10px !important;
     padding: 10px !important;
 }
 .profileSettings{
