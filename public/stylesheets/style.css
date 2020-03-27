@@ -1,5 +1,5 @@
 body,html{
-    background-color:black !important;
+    background-color: #000916 !important;
     }
 
     @font-face {
@@ -42,20 +42,20 @@ html{
         height: 120px;
         font-size: 70px !important;
         border-radius: 50px !important;
-        border: 3px solid white !important;
+        border: 3px solid #DCE1DE  !important;
         
     }
 
     .log-btn :hover{
-        color:black;
-        background-color: white;
+        color:#000916;
+        background-color: #DCE1DE ;
     }
 
     .navegacion{
         margin: 40px;
-        padding: 10px;
-        background-color: #343A40;
-        border-radius: 10px;
+        padding: 25px 10px;
+        background-color: #395756;
+        border-radius: 25px;
         position: relative;
         }
         .notiContainer{
@@ -65,8 +65,12 @@ html{
         .notiBody{
         border-radius: 25px !important;
         }
-        
+        .noti-noti{
+            margin-top: 120px !important; 
+        }
     
+    
+
     .discover-btn{
         text-align: left;
         }
@@ -91,7 +95,7 @@ html{
     
     .notification {
            
-        color: white;
+        color: #DCE1DE ;
         text-decoration: none;
         position: relative;
         display: inline-block;
@@ -100,60 +104,54 @@ html{
               
     .notification .badge {
         position: absolute;
-        top: -2px;
-        right: -25px;
-        padding: 5px 10px;
+        top: -1px;
+        font-size: 30px;
+        right: -45px;
+        padding: 8px 16px;
         border-radius: 50%;
-        background: red;
-        color: white;
+        background: #C84630;
+        color: #DCE1DE ;
         }
         
 .textNoti{
 font-size: 40px !important;
 border-radius: 25px !important;
+margin: 0 25px !important;
 } 
 .notification-card{
     width: 800px !important;
 }
 .arrow{
     width: 50px !important;
-    border: 4px solid white !important;
+    border: 4px solid #DCE1DE  !important;
     height: 50px !important;
     padding: 4px !important;
-    color:white !important;
+    color:#DCE1DE  !important;
 
     border-radius: 50% !important;
 }
 
 .btn{
-    background-color: black !important;
+    background-color: #000916 !important;
     }
 
-    .btnGreen{
-    
-    font-size: 50px !important;
-    border-radius: 25px !important;
-    border: 3px solid #56E76E !important;
-    color: #56E76E !important;
-    background-color: #343A40 !important;
+
+
+    .textonoticolapso{
+        width: 700px !important;
+        height: auto !important;
+      
     }
 
     .btnRed{
         font-size: 50px !important;
         border-radius: 25px !important;
-        border: 3px solid #D54646 !important;
-        background-color: #343A40 !important;
-        color: #D54646  !important;
+        border: 3px solid #C84630 !important;
+        background-color: #DCE1DE!important;
+        color: #C84630  !important;
         
         }
-    .btnWhite{
-            font-size: 50px !important;
-            border-radius: 25px !important;
-            border: 3px solid white !important;
-            background-color: #343A40 !important;
-            color: white  !important;
-            
-            }
+  
 
     .titulo{
         position: absolute;
@@ -176,7 +174,7 @@ border-radius: 25px !important;
     .tituloIndex{
         font-size: 200px;
         font-family: "fruits";
-        padding-top: 2em;
+        padding-top: 1.7em;
         }
 
         
@@ -193,13 +191,13 @@ border-radius: 25px !important;
 .indexcover{
     width: 100%;
     height: 100%;
-    background-image: url("/images/fondoswapit.png");
+    background-image: url("/images/fondoSwapitFinal-V5");
     background-size: cover;
 }
 .indexcover2{
     width: 100%;
     height: 100%;
-    background-image: url("/images/fondologsignswapit.png");
+    background-image: url("/images/fondoSwapitFinal-V4");
     background-size: cover;
 }
 
@@ -208,20 +206,20 @@ border-radius: 25px !important;
         .title{
             padding-top: 10px;
             font-size: 65px;
-            color: whitesmoke;
+            color: #DCE1DE;
             }
 
         .title2{
             padding-top: 10px;
             font-size: 50px;
             /* font-family: "recoleta"; */
-            color: whitesmoke;
+            color: #DCE1DE;
             }
             .title3{
                 padding-top: 10px;
                 font-size: 50px;
                
-                color: whitesmoke;
+                color: #DCE1DE;
                 }
 
         .form-auth{
@@ -248,8 +246,8 @@ border-radius: 25px !important;
             }
 
             .addbtn{
-                border:1px solid white !important;
-                color: white;
+                border:1px solid #DCE1DE  !important;
+                color: #DCE1DE ;
             }
                 
 .form-auth label{
@@ -273,7 +271,7 @@ font-size: 45px;
         .signlog{
         font-size: 50px !important;
         border-radius: 25px !important;
-        border: 3px solid white !important;
+        border: 3px solid #DCE1DE  !important;
         }
         .textSignLog{
         font-size: 45px !important;
@@ -281,6 +279,7 @@ font-size: 45px;
 
         .errorLog{
             font-size: 50px;
+            color: #C84630 !important;
             }
 
         .form-group select{
@@ -303,8 +302,8 @@ font-size: 45px;
                 }
 
             .card-body{
-                background-color: black;
-                color: white;
+                background-color: #000916;
+                color: #DCE1DE ;
                 padding: 0.5rem !important;
                 }
 
@@ -324,8 +323,8 @@ font-size: 45px;
                     margin: 15px;
                     display: block;
                     max-width: none !important;
-                    border: 2px solid black !important;
-                    background-color: black !important;
+                    border: 2px solid #000916 !important;
+                    background-color: #000916 !important;
                     
                     }
                     
@@ -333,7 +332,7 @@ font-size: 45px;
                         object-fit: cover;
                         height: 500px;
                         width: 200px;
-                        /* border: 3px solid white !important; */
+                        /* border: 3px solid #DCE1DE  !important; */
                         border-radius: 25px !important;
                         
                 
@@ -348,7 +347,7 @@ font-size: 45px;
                 font-size: 30px !important;
                 border-radius: 25px !important;
                 padding: 5px 20px !important;
-                border: 3px solid white !important;
+                border: 3px solid #DCE1DE  !important;
                 
             }
 
@@ -382,14 +381,26 @@ font-size: 50px;
 .orden2{
     font-size: 72px;
     }
+
+.contenedor-img{
+    position: relative !important;
+}
 .orden3{
+position: absolute !important;
+color: #DCE1DE !important;
+bottom: 70px !important;
+right: 340px !important;
 border-radius: 25px !important;
-border: 3px solid white !important;
+border: 3px solid  rgba(0, 0, 16, 0.1) !important;
+font-size: 60px !important;
+padding: 20px 60px !important;
+background-color: rgba(0, 0, 16, 0.6) !important;
 
 }
 
 .inputImg{
 width: 400px !important;
+font-size: 30px !important;
 
 }
 /*Create inputs*/
@@ -412,6 +423,18 @@ border-radius: 50%;
 margin-bottom: 10px;
 
 }
+.btnmarginleft{
+    margin-left: 250px !important;
+}
+
+.img-peq{
+    object-fit: cover;
+    height: 120px;
+    width: 120px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    
+    }
 .imgProf2{
 
     height: 120px;
@@ -426,7 +449,7 @@ margin-bottom: 10px;
 
 .bin{
     width: 50px !important;
-    border: 1px solid white !important;
+    border: 3px solid #DCE1DE  !important;
     border-radius: 10px !important;
     padding: 10px !important;
 }
@@ -442,7 +465,7 @@ margin-left: 50px;
 .privBtn{
     font-size: 50px !important;
     border-radius: 25px !important;
-    border: 2px solid white !important;
+    border: 2px solid #DCE1DE  !important;
     padding: 10px 20px !important;
 
 }
@@ -477,7 +500,7 @@ text-align: justify;
     position:absolute;
     top: 220px;
     left: 90px;
-    border: 2px solid white !important;
+    border: 2px solid #DCE1DE  !important;
 }
 .padre-details{
     position:relative;
@@ -487,6 +510,30 @@ text-align: justify;
     width: 30px !important;
     height: 30px !important;
 }
+
+.matchcolor{
+    /* background-color: #79B791 !important; */
+    background-color: #49A078!important;
+}
+.noticolor{ 
+    background-color: #9CC5A1!important;
+}
+.notibodytext{
+    background-color: #DCE1DE !important;
+}
+
+.btn-negro-hover:hover{
+    background-color: #DCE1DE !important;
+    color: #000916 !important;
+}
+
+
+
+
+
+
+
+
 /* Desktop css */
 @media screen 
 and (min-device-width: 1200px) 
@@ -553,7 +600,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
             padding-top: 10px;
             font-size: 35px!important;
             font-family: "vintage";
-            color: whitesmoke;
+            color: #DCE1DE;
             } 
         
             

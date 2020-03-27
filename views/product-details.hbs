@@ -1,13 +1,15 @@
 
 <div class="containero text-center mb-5">
   <div class="padre-details">
+    <div class="contenedor-img">
     <a class="gobackcontenedor"href="/priv/discover"><img class="gobackbtn" src="/images/chevron-left-solid.png" srcset=""></a>
+    <a class="btn-negro-hover btn btn-light orden3 btn-negro-hover:hover" href="/priv/want/{{detailProduct.id}}">Swap it!</a>
       <img src={{detailProduct.imgPath}} class="detailImg" alt="...">
-      <div class="orden">
+      </div>
+      <div class="orden mt-4">
         <h5 class="text-light orden2">{{detailProduct.title}}</h5>
         <p class="text-light categoryText"><i>{{detailProduct.category}}</i></p>
         <p class="text-light descripText">{{detailProduct.description}}</p>
-         <a class="btn btn-light text-light orden3" href="/priv/want/{{detailProduct.id}}">Want!</a>
       </div>
     </div>
     </div>

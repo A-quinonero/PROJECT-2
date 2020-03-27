@@ -4,26 +4,26 @@
 
 <form class="form-auth" action="/auth/signup" method="POST" enctype="multipart/form-data">
 
-    <input class="text-center" type="text" name="username" placeholder="User name">
+    <input class="text-center mb-3" type="text" name="username" placeholder="User name">
 
-    <input class="text-center"  type="password" name="password" placeholder="Password">
+    <input class="text-center mb-3"  type="password" name="password" placeholder="Password">
 
-    <input class="text-center" type="password" name="repeatPassword" placeholder="Repeat Password">
-    
+    <input class="text-center mb-3" type="password" name="repeatPassword" placeholder="Repeat Password">
+    <label class="text-center text-light">Profile Image</label>
     <input type="file" name="photo" class="text-center bg-light inputImg" placeholder="Profile Image">
   
     {{#if errorMessage}}
-        <div class="text-light errorLog">{{ errorMessage }}</div>
+        <div class="text-center errorLog">{{ errorMessage }}</div>
     {{/if}}
 <br>
-    <button class="btn btn-light text-light" type="submit">Sign up</button>
+    <button class="btn-negro-hover btn btn-light text-light" type="submit">Sign up</button>
 
 </form>
 <br>
 <form class="d-flex justify-content-center align-items-center text-center logsign" action="/auth/login" method="POST">
 <h5 class="text-light errorLog ">Already have an account?
     <div>
-<button type="submit" class="btn btn-light text-light">Log in</button></h5>
+<button type="submit" class="btn-negro-hover btn btn-light text-light">Log in</button></h5>
 </div>
 </form>
 

@@ -1,15 +1,15 @@
 
 <form class="wish-creation-btn text-center">
-<div class=" text-center d-flex justify-content-around align-items-center">
+<div class=" text-center d-flex justify-content-center align-items-center">
 <div class="botones-priv ">
-  <button class="privBtn btn btn-light text-light m-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-   Wishes
-  </button>
-  <button class="privBtn btn btn-light text-light m-2" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+  <button class="btn-negro-hover privBtn btn btn-light text-light m-2 mr-4" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
     Creations
   </button>
+  <button class=" btn-negro-hover privBtn btn btn-light text-light m-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+   Wishes
+  </button>
 </div>
-<div class=" profileSettings  text-center d-flex justify-content-center align-items-center">
+<div class=" profileSettings  text-center d-flex justify-content-center align-items-center btnmarginleft">
 <img class="imgProf " src="{{myUserHave.imgPath}}" alt="">
 <p class="text-light textProfile">Hi <b>{{myUserHave.username}}</b>!</p>
 </div>
@@ -40,7 +40,7 @@
 <h1 class="title3 text-center">Creations</h1>
 
 <form class="d-flex justify-content-center align-items-center text-center mb-3" action="/priv/create-have">
-<button class="text-light"><img class="bin" src="/images/plus-solid-white.png" srcset="">Add some</button>
+<button class="text-light"><p class="text-light">Add some</p><img class="bin" src="/images/plus-solid-white.png" srcset=""></button>
 </form>
 
   <div class="containerd text-center">
