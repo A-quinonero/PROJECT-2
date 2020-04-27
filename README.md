@@ -1,4 +1,5 @@
-# PROJECT-2
+# Swap It!
+
 Description
 "Changerest" es una plataforma social pensada para realizar intercambios entre creativos, ya sean fotografías, cosas echas a mano, dibujos, articulos de decoración...etc
 
